@@ -39,15 +39,13 @@ class Settings(BaseSettings):
 
     # --- Pydantic 魔法配置 ---
     model_config = SettingsConfigDict(
-        env_file=BACKEND_DIR / ".env",  # 精准定位 .env
+        env_file=BACKEND_DIR / ".env",  # 定位 .env
         env_ignore_empty=True,          # 忽略空行
-        extra="ignore",                 # 忽略 .env 里多余的变量 (比如 API_KEY)
+        extra="ignore",                 # 忽略 .env 里多余的变量
         env_file_encoding="utf-8"
     )
 
 # --- 5. 实例化 ---
-# 整个项目只需要这就行了，其他地方 import settings 即可
 settings = Settings()
-
-# 顺手把日志目录建好 (最佳实践：Fail Fast，如果没权限建目录这里就炸，而不是等写日志时才炸)
+# 确保日志目录存在
 settings.LOG_DIR.mkdir(parents=True, exist_ok=True)

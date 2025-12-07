@@ -1,0 +1,322 @@
+2025-12-02 16:20:22.158 | SUCCESS  | __main__:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-02 16:20:22.158 | INFO     | __main__:create_collection_if_not_exists:45 - 集合已存在: test_collection
+2025-12-02 16:20:43.322 | SUCCESS  | __main__:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-02 16:20:43.324 | INFO     | __main__:<module>:64 - 开始测试查询...
+2025-12-02 16:20:43.326 | INFO     | __main__:close:33 - Neo4j 连接已关闭
+2025-12-02 16:20:47.948 | SUCCESS  | __main__:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-02 16:20:47.948 | INFO     | __main__:create_collection_if_not_exists:45 - 集合已存在: test_collection
+2025-12-03 14:52:22.220 | INFO     | __main__:<module>:96 - 🤖 开始测试 LLM Factory...
+2025-12-03 14:52:22.221 | INFO     | __main__:<module>:100 - 1️⃣ 测试 FAST 模式...
+2025-12-03 14:52:22.426 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: gpt-4o-mini | Temp: 0.0
+2025-12-03 14:52:22.732 | ERROR    | __main__:<module>:135 - ❌ 测试失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': 'afdcebab-f80a-48de-af49-447d0d241046'}
+2025-12-03 14:53:24.529 | INFO     | __main__:<module>:96 - 🤖 开始测试 LLM Factory...
+2025-12-03 14:53:24.529 | INFO     | __main__:<module>:100 - 1️⃣ 测试 FAST 模式...
+2025-12-03 14:53:24.708 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-03 14:53:24.915 | ERROR    | __main__:<module>:135 - ❌ 测试失败: Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': 'f768f96e-5874-4b25-a70a-a71a2863d068'}
+2025-12-03 14:58:32.679 | INFO     | __main__:<module>:96 - 🤖 开始测试 LLM Factory...
+2025-12-03 14:58:32.679 | INFO     | __main__:<module>:100 - 1️⃣ 测试 FAST 模式...
+2025-12-03 14:58:32.869 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-03 14:58:33.346 | ERROR    | __main__:<module>:135 - ❌ 测试失败: Not Found
+2025-12-03 15:00:11.032 | INFO     | __main__:<module>:96 - 🤖 开始测试 LLM Factory...
+2025-12-03 15:00:11.034 | INFO     | __main__:<module>:100 - 1️⃣ 测试 FAST 模式...
+2025-12-03 15:00:11.222 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-03 15:00:11.636 | ERROR    | __main__:<module>:135 - ❌ 测试失败: Not Found
+2025-12-03 15:01:51.259 | INFO     | __main__:<module>:96 - 🤖 开始测试 LLM Factory...
+2025-12-03 15:01:51.259 | INFO     | __main__:<module>:100 - 1️⃣ 测试 FAST 模式...
+2025-12-03 15:01:51.438 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-03 15:01:53.832 | SUCCESS  | __main__:<module>:103 - ✅ Fast Mode 响应: 
+
+2
+2025-12-03 15:01:53.833 | INFO     | __main__:<module>:106 - 2️⃣ 测试 SMART 模式...
+2025-12-03 15:01:53.834 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.7
+2025-12-03 15:01:53.834 | SUCCESS  | __main__:<module>:109 - ✅ Smart Mode 初始化成功
+2025-12-03 15:01:53.834 | INFO     | __main__:<module>:112 - 3️⃣ 测试 STRICT 模式...
+2025-12-03 15:01:53.835 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: strict | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.0
+2025-12-03 15:01:53.835 | SUCCESS  | __main__:<module>:115 - ✅ Strict Mode 初始化成功
+2025-12-03 15:01:53.835 | INFO     | __main__:<module>:118 - 4️⃣ 测试与 create_agent 集成...
+2025-12-03 15:01:53.837 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.7
+2025-12-03 15:01:53.843 | SUCCESS  | __main__:<module>:130 - ✅ Agent 创建成功
+2025-12-03 15:01:53.843 | SUCCESS  | __main__:<module>:132 - 🎉 所有测试通过！
+2025-12-03 15:11:37.292 | INFO     | __main__:<module>:96 - 🤖 开始测试 LLM Factory...
+2025-12-03 15:11:37.293 | INFO     | __main__:<module>:100 - 1️⃣ 测试 FAST 模式...
+2025-12-03 15:11:37.490 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-03 15:11:41.536 | SUCCESS  | __main__:<module>:103 - ✅ Fast Mode 响应: 
+
+2
+2025-12-03 15:11:41.537 | INFO     | __main__:<module>:106 - 2️⃣ 测试 SMART 模式...
+2025-12-03 15:11:41.538 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.7
+2025-12-03 15:11:41.538 | SUCCESS  | __main__:<module>:109 - ✅ Smart Mode 初始化成功
+2025-12-03 15:11:41.538 | INFO     | __main__:<module>:112 - 3️⃣ 测试 STRICT 模式...
+2025-12-03 15:11:41.538 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: strict | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.0
+2025-12-03 15:11:41.538 | SUCCESS  | __main__:<module>:115 - ✅ Strict Mode 初始化成功
+2025-12-03 15:11:41.538 | INFO     | __main__:<module>:118 - 4️⃣ 测试与 create_agent 集成...
+2025-12-03 15:11:41.541 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.7
+2025-12-03 15:11:41.550 | SUCCESS  | __main__:<module>:130 - ✅ Agent 创建成功
+2025-12-03 15:11:41.550 | SUCCESS  | __main__:<module>:132 - 🎉 所有测试通过！
+2025-12-03 15:15:51.070 | INFO     | __main__:<module>:96 - 🤖 开始测试 LLM Factory...
+2025-12-03 15:15:51.070 | INFO     | __main__:<module>:100 - 1️⃣ 测试 FAST 模式...
+2025-12-03 15:15:51.262 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-03 15:16:01.324 | SUCCESS  | __main__:<module>:103 - ✅ Fast Mode 响应: ['2']
+2025-12-03 15:16:01.325 | INFO     | __main__:<module>:106 - 2️⃣ 测试 SMART 模式...
+2025-12-03 15:16:01.325 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.7
+2025-12-03 15:16:01.326 | SUCCESS  | __main__:<module>:109 - ✅ Smart Mode 初始化成功
+2025-12-03 15:16:01.326 | INFO     | __main__:<module>:112 - 3️⃣ 测试 STRICT 模式...
+2025-12-03 15:16:01.326 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: strict | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.0
+2025-12-03 15:16:01.326 | SUCCESS  | __main__:<module>:115 - ✅ Strict Mode 初始化成功
+2025-12-03 15:16:01.326 | INFO     | __main__:<module>:118 - 4️⃣ 测试与 create_agent 集成...
+2025-12-03 15:16:01.329 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.7
+2025-12-03 15:16:01.339 | SUCCESS  | __main__:<module>:130 - ✅ Agent 创建成功
+2025-12-03 15:16:01.339 | SUCCESS  | __main__:<module>:132 - 🎉 所有测试通过！
+2025-12-03 15:16:21.954 | INFO     | __main__:<module>:96 - 🤖 开始测试 LLM Factory...
+2025-12-03 15:16:21.954 | INFO     | __main__:<module>:100 - 1️⃣ 测试 FAST 模式...
+2025-12-03 15:16:22.151 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-03 15:16:24.940 | SUCCESS  | __main__:<module>:103 - ✅ Fast Mode 响应: 2
+2025-12-03 15:16:24.941 | INFO     | __main__:<module>:106 - 2️⃣ 测试 SMART 模式...
+2025-12-03 15:16:24.941 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.7
+2025-12-03 15:16:24.941 | SUCCESS  | __main__:<module>:109 - ✅ Smart Mode 初始化成功
+2025-12-03 15:16:24.941 | INFO     | __main__:<module>:112 - 3️⃣ 测试 STRICT 模式...
+2025-12-03 15:16:24.941 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: strict | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.0
+2025-12-03 15:16:24.941 | SUCCESS  | __main__:<module>:115 - ✅ Strict Mode 初始化成功
+2025-12-03 15:16:24.941 | INFO     | __main__:<module>:118 - 4️⃣ 测试与 create_agent 集成...
+2025-12-03 15:16:24.943 | SUCCESS  | __main__:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: Qwen/Qwen3-Coder-480B-A35B-Instruct | Temp: 0.7
+2025-12-03 15:16:24.947 | SUCCESS  | __main__:<module>:130 - ✅ Agent 创建成功
+2025-12-03 15:16:24.947 | SUCCESS  | __main__:<module>:132 - 🎉 所有测试通过！
+2025-12-03 16:22:50.402 | INFO     | __main__:<module>:54 - 🤖 开始测试 Embedding Factory...
+2025-12-03 16:22:50.403 | INFO     | __main__:<module>:57 - 1️⃣ 初始化嵌入模型...
+2025-12-03 16:22:50.575 | SUCCESS  | __main__:get_embedding:40 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-03 16:22:50.575 | SUCCESS  | __main__:<module>:59 - ✅ Embedding 初始化成功
+2025-12-03 16:22:50.575 | INFO     | __main__:<module>:61 - 2️⃣ 测试单个文本嵌入...
+2025-12-03 16:22:52.723 | ERROR    | __main__:<module>:72 - ❌ 测试失败: Not Found
+2025-12-03 16:23:04.260 | INFO     | __main__:<module>:54 - 🤖 开始测试 Embedding Factory...
+2025-12-03 16:23:04.260 | INFO     | __main__:<module>:57 - 1️⃣ 初始化嵌入模型...
+2025-12-03 16:23:04.427 | SUCCESS  | __main__:get_embedding:40 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-03 16:23:04.427 | SUCCESS  | __main__:<module>:59 - ✅ Embedding 初始化成功
+2025-12-03 16:23:04.427 | INFO     | __main__:<module>:61 - 2️⃣ 测试单个文本嵌入...
+2025-12-03 16:23:04.620 | ERROR    | __main__:<module>:72 - ❌ 测试失败: Not Found
+2025-12-03 16:23:22.657 | INFO     | __main__:<module>:54 - 🤖 开始测试 Embedding Factory...
+2025-12-03 16:23:22.657 | INFO     | __main__:<module>:57 - 1️⃣ 初始化嵌入模型...
+2025-12-03 16:23:22.889 | SUCCESS  | __main__:get_embedding:40 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-03 16:23:22.890 | SUCCESS  | __main__:<module>:59 - ✅ Embedding 初始化成功
+2025-12-03 16:23:22.890 | INFO     | __main__:<module>:61 - 2️⃣ 测试单个文本嵌入...
+2025-12-03 16:23:25.050 | SUCCESS  | __main__:<module>:63 - ✅ 向量维度: 4096
+2025-12-03 16:23:25.051 | INFO     | __main__:<module>:65 - 3️⃣ 测试批量文本嵌入...
+2025-12-03 16:23:26.252 | SUCCESS  | __main__:<module>:67 - ✅ 批量嵌入成功，数量: 3
+2025-12-03 16:23:26.252 | SUCCESS  | __main__:<module>:69 - 🎉 所有测试通过！
+2025-12-03 16:29:01.403 | INFO     | __main__:<module>:55 - 🤖 开始测试 Embedding Factory...
+2025-12-03 16:29:01.403 | INFO     | __main__:<module>:58 - 1️⃣ 初始化嵌入模型...
+2025-12-03 16:29:01.593 | SUCCESS  | __main__:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-03 16:29:01.593 | SUCCESS  | __main__:<module>:60 - ✅ Embedding 初始化成功
+2025-12-03 16:29:01.593 | INFO     | __main__:<module>:62 - 2️⃣ 测试单个文本嵌入...
+2025-12-03 16:29:02.000 | SUCCESS  | __main__:<module>:64 - ✅ 向量维度: 4096
+2025-12-03 16:29:02.001 | INFO     | __main__:<module>:66 - 3️⃣ 测试批量文本嵌入...
+2025-12-03 16:29:02.374 | SUCCESS  | __main__:<module>:68 - ✅ 批量嵌入成功，数量: 3
+2025-12-03 16:29:02.374 | SUCCESS  | __main__:<module>:70 - 🎉 所有测试通过！
+2025-12-03 16:29:24.048 | INFO     | __main__:<module>:55 - 🤖 开始测试 Embedding Factory...
+2025-12-03 16:29:24.048 | INFO     | __main__:<module>:58 - 1️⃣ 初始化嵌入模型...
+2025-12-03 16:29:24.228 | SUCCESS  | __main__:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-03 16:29:24.228 | SUCCESS  | __main__:<module>:60 - ✅ Embedding 初始化成功
+2025-12-03 16:29:24.228 | INFO     | __main__:<module>:62 - 2️⃣ 测试单个文本嵌入...
+2025-12-03 16:29:52.487 | SUCCESS  | __main__:<module>:64 - ✅ 向量维度: 4096
+2025-12-03 16:29:52.488 | INFO     | __main__:<module>:66 - 3️⃣ 测试批量文本嵌入...
+2025-12-03 16:29:52.767 | SUCCESS  | __main__:<module>:68 - ✅ 批量嵌入成功，数量: 3
+2025-12-03 16:29:52.767 | SUCCESS  | __main__:<module>:70 - 🎉 所有测试通过！
+2025-12-03 16:30:01.468 | INFO     | __main__:<module>:55 - 🤖 开始测试 Embedding Factory...
+2025-12-03 16:30:01.468 | INFO     | __main__:<module>:58 - 1️⃣ 初始化嵌入模型...
+2025-12-03 16:30:01.653 | SUCCESS  | __main__:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-03 16:30:01.653 | SUCCESS  | __main__:<module>:60 - ✅ Embedding 初始化成功
+2025-12-03 16:30:01.653 | INFO     | __main__:<module>:62 - 2️⃣ 测试单个文本嵌入...
+2025-12-03 16:30:04.728 | SUCCESS  | __main__:<module>:64 - ✅ 向量维度: 2048
+2025-12-03 16:30:04.728 | INFO     | __main__:<module>:66 - 3️⃣ 测试批量文本嵌入...
+2025-12-03 16:30:06.869 | SUCCESS  | __main__:<module>:68 - ✅ 批量嵌入成功，数量: 3
+2025-12-03 16:30:06.869 | SUCCESS  | __main__:<module>:70 - 🎉 所有测试通过！
+2025-12-04 16:53:22.672 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 16:53:22.967 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 16:53:22.967 | ERROR    | __main__:_init_extraction_chain:42 - ❌ 实体抽取链初始化失败: LLMFactory.get_llm() got an unexpected keyword argument 'json_mode'
+2025-12-04 16:53:22.968 | INFO     | __main__:main_test:236 - 🚀 开始测试混合检索服务...
+2025-12-04 16:53:22.968 | WARNING  | __main__:_step_extract_entities:91 - 抽取链未初始化，跳过
+2025-12-04 17:09:43.864 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:09:43.872 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:09:43.873 | INFO     | __main__:setup_test_data:16 - 🔄 开始创建测试数据...
+2025-12-04 17:09:43.873 | INFO     | __main__:clear_test_data:31 - 🧹 清空测试数据...
+2025-12-04 17:09:44.005 | INFO     | __main__:clear_test_data:46 - ✅ Qdrant entities集合已清空
+2025-12-04 17:09:44.006 | INFO     | __main__:create_neo4j_test_graph:52 - 🕸️  创建Neo4j测试图谱...
+2025-12-04 17:09:44.639 | SUCCESS  | __main__:create_neo4j_test_graph:111 - ✅ Neo4j测试图谱创建完成 (20节点+30关系)
+2025-12-04 17:09:44.639 | INFO     | __main__:create_qdrant_test_index:115 - 📦 创建Qdrant实体索引...
+2025-12-04 17:09:44.841 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:09:45.259 | INFO     | __main__:create_qdrant_test_index:136 - ✅ Qdrant集合创建: entities (dim=4096)
+2025-12-04 17:09:46.023 | SUCCESS  | __main__:create_qdrant_test_index:180 - ✅ Qdrant实体索引创建完成: 15个实体
+2025-12-04 17:09:46.024 | SUCCESS  | __main__:setup_test_data:27 - ✅ 测试数据创建完成！
+2025-12-04 17:09:46.024 | SUCCESS  | __main__:main_setup:186 - 🎉 测试环境准备完成！
+测试查询示例：
+  '马斯克的太空公司'
+  'SpaceX星舰进展'
+  '特斯拉中国工厂'
+2025-12-04 17:10:04.676 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:10:04.944 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:10:05.159 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:10:05.159 | SUCCESS  | __main__:_init_embeddings:40 - ✅ Embedding集成成功 | Model: Qwen/Qwen3-Embedding-8B | Dim: 4096
+2025-12-04 17:10:05.160 | WARNING  | __main__:_init_services:60 - ⚠️ QdrantVectorStore初始化失败: Qdrant.__init__() got an unexpected keyword argument 'metadata_field'
+2025-12-04 17:10:05.195 | WARNING  | __main__:_init_services:72 - ⚠️ Neo4jGraph初始化失败: Could not use APOC procedures. Please ensure the APOC plugin is installed in Neo4j and that 'apoc.meta.data()' is allowed in Neo4j configuration 
+2025-12-04 17:10:05.195 | ERROR    | __main__:_init_extraction_chain:95 - ❌ 实体抽取链初始化失败: LLMFactory.get_llm() got an unexpected keyword argument 'json_mode'
+2025-12-04 17:10:05.195 | SUCCESS  | __main__:__init__:34 - ✅ HybridSearchService完全初始化完成
+2025-12-04 17:10:05.196 | INFO     | __main__:main_test:333 - 🚀 开始测试优化版HybridSearch...
+2025-12-04 17:10:05.196 | INFO     | __main__:main_test:347 - 
+🔍 测试查询: 马斯克的太空公司是什么
+2025-12-04 17:10:05.196 | INFO     | __main__:main_test:347 - 
+🔍 测试查询: SpaceX和特斯拉的关系
+2025-12-04 17:10:05.196 | INFO     | __main__:main_test:347 - 
+🔍 测试查询: 星舰项目的最新进展
+2025-12-04 17:11:23.873 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:11:23.905 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:11:24.134 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:11:24.134 | SUCCESS  | __main__:_init_services:60 - ✅ QdrantVectorStore初始化成功
+2025-12-04 17:11:24.199 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:11:24.200 | SUCCESS  | __main__:_init_extraction_chain:81 - ✅ 实体抽取链初始化成功
+2025-12-04 17:11:24.200 | SUCCESS  | __main__:__init__:38 - ✅ HybridSearchService修复版初始化完成
+2025-12-04 17:12:12.855 | WARNING  | __main__:_step_vector_search:177 - 向量检索失败: 1 validation error for Document
+page_content
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-12-04 17:12:13.027 | WARNING  | __main__:_step_graph_search:202 - 图检索失败: 'list' object has no attribute 'records'
+2025-12-04 17:12:13.029 | SUCCESS  | __main__:search:123 - ✅ 检索完成: 实体1 向量0 节点0
+2025-12-04 17:12:49.549 | WARNING  | __main__:_step_vector_search:177 - 向量检索失败: 1 validation error for Document
+page_content
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-12-04 17:12:49.645 | WARNING  | __main__:_step_graph_search:202 - 图检索失败: 'list' object has no attribute 'records'
+2025-12-04 17:12:49.646 | SUCCESS  | __main__:search:123 - ✅ 检索完成: 实体2 向量0 节点0
+2025-12-04 17:33:00.573 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:33:00.596 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:33:00.831 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:33:00.897 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:33:00.899 | SUCCESS  | __main__:_init_qdrant:40 - ✅ Qdrant实体库初始化
+2025-12-04 17:33:00.900 | SUCCESS  | __main__:__init__:30 - ✅ 精简HybridSearch初始化完成
+2025-12-04 17:33:02.952 | WARNING  | __main__:_extract_entities:81 - 实体提取失败: 'dict' object has no attribute 'entities'
+2025-12-04 17:38:36.775 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:38:36.808 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:38:37.036 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:38:37.102 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:38:37.106 | SUCCESS  | __main__:_init_qdrant:40 - ✅ Qdrant实体库初始化
+2025-12-04 17:38:37.106 | SUCCESS  | __main__:__init__:30 - ✅ HybridSearch初始化完成
+2025-12-04 17:39:24.522 | WARNING  | __main__:_extract_entities:82 - 实体提取失败: 'dict' object has no attribute 'entities'
+2025-12-04 17:39:24.523 | INFO     | __main__:test:159 - 简要上下文: 未提取到实体
+2025-12-04 17:39:24.523 | INFO     | __main__:test:160 - 抽取实体: []
+2025-12-04 17:42:04.042 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:42:04.059 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:42:04.282 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:42:04.350 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:42:04.353 | ERROR    | __main__:<module>:144 - ❌ 初始化失败: QdrantVectorStore.__init__() got an unexpected keyword argument 'embeddings'
+2025-12-04 17:42:20.287 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:42:20.307 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:42:20.537 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:42:20.603 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:42:20.606 | SUCCESS  | __main__:_init_qdrant:39 - ✅ Qdrant实体库初始化
+2025-12-04 17:42:20.606 | SUCCESS  | __main__:__init__:29 - ✅ HybridSearch初始化完成
+2025-12-04 17:42:23.408 | WARNING  | __main__:_extract_entities:82 - 实体提取失败: 'ToolMessage' object has no attribute 'response'
+2025-12-04 17:42:23.408 | INFO     | __main__:test:159 - 简要上下文: 未提取到实体
+2025-12-04 17:42:23.408 | INFO     | __main__:test:160 - 抽取实体: []
+2025-12-04 17:43:10.568 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:43:10.588 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:43:10.801 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:43:10.865 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:43:10.868 | SUCCESS  | __main__:_init_qdrant:39 - ✅ Qdrant实体库初始化
+2025-12-04 17:43:10.868 | SUCCESS  | __main__:__init__:29 - ✅ HybridSearch初始化完成
+2025-12-04 17:43:12.845 | WARNING  | __main__:_extract_entities:82 - 实体提取失败: 'ToolMessage' object has no attribute 'entities'
+2025-12-04 17:43:12.845 | INFO     | __main__:test:159 - 简要上下文: 未提取到实体
+2025-12-04 17:43:12.845 | INFO     | __main__:test:160 - 抽取实体: []
+2025-12-04 17:43:38.123 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:43:38.149 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:43:38.360 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:43:38.424 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:43:38.428 | SUCCESS  | __main__:_init_qdrant:39 - ✅ Qdrant实体库初始化
+2025-12-04 17:43:38.428 | SUCCESS  | __main__:__init__:29 - ✅ HybridSearch初始化完成
+2025-12-04 17:44:23.492 | WARNING  | __main__:_extract_entities:82 - 实体提取失败: 'ToolMessage' object has no attribute 'entities'
+2025-12-04 17:44:23.493 | INFO     | __main__:test:159 - 简要上下文: 未提取到实体
+2025-12-04 17:44:23.493 | INFO     | __main__:test:160 - 抽取实体: []
+2025-12-04 17:50:21.999 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:50:22.018 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:50:22.240 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:50:22.307 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:50:22.310 | SUCCESS  | __main__:_init_qdrant:39 - ✅ Qdrant实体库初始化
+2025-12-04 17:50:22.310 | SUCCESS  | __main__:__init__:29 - ✅ HybridSearch初始化完成
+2025-12-04 17:50:33.016 | INFO     | __main__:_extract_entities:81 - 提取实体: []
+2025-12-04 17:50:33.017 | INFO     | __main__:test:160 - 简要上下文: 未提取到实体
+2025-12-04 17:50:33.017 | INFO     | __main__:test:161 - 抽取实体: []
+2025-12-04 17:51:02.324 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:51:02.343 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:51:02.571 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:51:02.645 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:51:02.649 | SUCCESS  | __main__:_init_qdrant:39 - ✅ Qdrant实体库初始化
+2025-12-04 17:51:02.649 | SUCCESS  | __main__:__init__:29 - ✅ HybridSearch初始化完成
+2025-12-04 17:51:05.044 | INFO     | __main__:_extract_entities:82 - 提取实体: []
+2025-12-04 17:51:05.044 | INFO     | __main__:test:161 - 简要上下文: 未提取到实体
+2025-12-04 17:51:05.044 | INFO     | __main__:test:162 - 抽取实体: []
+2025-12-04 17:52:02.493 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:52:02.516 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:52:02.740 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:52:02.804 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:52:02.808 | SUCCESS  | __main__:_init_qdrant:39 - ✅ Qdrant实体库初始化
+2025-12-04 17:52:02.808 | SUCCESS  | __main__:__init__:29 - ✅ HybridSearch初始化完成
+2025-12-04 17:52:48.986 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:52:48.995 | ERROR    | app.services.qdrant_service:_connect:23 - ❌ Qdrant 初始化失败: Storage folder ./qdrant_data is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+2025-12-04 17:52:49.210 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:52:49.272 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:52:49.276 | ERROR    | __main__:<module>:146 - ❌ 初始化失败: 'NoneType' object has no attribute 'get_client'
+2025-12-04 17:52:57.687 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:52:57.696 | ERROR    | app.services.qdrant_service:_connect:23 - ❌ Qdrant 初始化失败: Storage folder ./qdrant_data is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+2025-12-04 17:52:57.922 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:52:57.986 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:52:57.989 | ERROR    | __main__:<module>:146 - ❌ 初始化失败: 'NoneType' object has no attribute 'get_client'
+2025-12-04 17:56:36.113 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:56:36.122 | ERROR    | app.services.qdrant_service:_connect:23 - ❌ Qdrant 初始化失败: Storage folder ./qdrant_data is already accessed by another instance of Qdrant client. If you require concurrent access, use Qdrant server instead.
+2025-12-04 17:56:36.346 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:56:36.409 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:56:36.412 | ERROR    | __main__:<module>:146 - ❌ 初始化失败: 'NoneType' object has no attribute 'get_client'
+2025-12-04 17:57:06.994 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-04 17:57:07.005 | SUCCESS  | app.services.qdrant_service:_connect:21 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-04 17:57:07.235 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-04 17:57:07.301 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-04 17:57:07.304 | SUCCESS  | __main__:_init_qdrant:39 - ✅ Qdrant实体库初始化
+2025-12-04 17:57:07.304 | SUCCESS  | __main__:__init__:29 - ✅ HybridSearch初始化完成
+2025-12-04 18:08:37.590 | INFO     | __main__:_extract_entities:82 - 提取实体: []
+2025-12-04 18:08:37.592 | INFO     | __main__:test:161 - 简要上下文: 未提取到实体
+2025-12-04 18:08:37.592 | INFO     | __main__:test:162 - 抽取实体: []
+2025-12-07 14:15:19.667 | SUCCESS  | __main__:_connect:25 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:15:19.669 | INFO     | __main__:create_collection_if_not_exists:50 - 已创建新集合: test_knowledge_base
+2025-12-07 14:15:19.669 | INFO     | __main__:<module>:153 - 🚀 开始插入测试数据...
+2025-12-07 14:15:19.849 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:15:19.849 | INFO     | __main__:add_texts:106 - ⏳ 正在生成 3 条文本的 Embeddings...
+2025-12-07 14:15:23.901 | ERROR    | __main__:upsert_vectors:85 - ❌ 插入向量失败: could not broadcast input array from shape (4096,) into shape (1536,)
+2025-12-07 14:15:23.902 | INFO     | __main__:<module>:157 - 🔍 开始搜索 '数据库'...
+2025-12-07 14:16:04.431 | SUCCESS  | __main__:_connect:25 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:16:04.432 | INFO     | __main__:create_collection_if_not_exists:52 - 集合已存在: test_knowledge_base
+2025-12-07 14:16:04.432 | INFO     | __main__:<module>:152 - 🚀 开始插入测试数据...
+2025-12-07 14:16:04.594 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:16:04.594 | INFO     | __main__:add_texts:106 - ⏳ 正在生成 3 条文本的 Embeddings...
+2025-12-07 14:16:05.550 | ERROR    | __main__:upsert_vectors:85 - ❌ 插入向量失败: could not broadcast input array from shape (4096,) into shape (1536,)
+2025-12-07 14:16:05.550 | INFO     | __main__:<module>:156 - 🔍 开始搜索 '数据库'...
+2025-12-07 14:16:05.628 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:16:32.316 | SUCCESS  | __main__:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:16:32.316 | INFO     | __main__:create_collection_if_not_exists:53 - 集合已存在: test_knowledge_base
+2025-12-07 14:16:32.316 | INFO     | __main__:<module>:153 - 🚀 开始插入测试数据...
+2025-12-07 14:16:32.452 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:16:32.452 | INFO     | __main__:add_texts:107 - ⏳ 正在生成 3 条文本的 Embeddings...
+2025-12-07 14:16:33.237 | ERROR    | __main__:upsert_vectors:86 - ❌ 插入向量失败: could not broadcast input array from shape (4096,) into shape (1536,)
+2025-12-07 14:16:33.237 | INFO     | __main__:<module>:157 - 🔍 开始搜索 '数据库'...
+2025-12-07 14:16:33.316 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:23:42.439 | SUCCESS  | __main__:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:23:42.441 | INFO     | __main__:create_collection_if_not_exists:51 - 已创建新集合: test_knowledge_base
+2025-12-07 14:23:42.441 | INFO     | __main__:<module>:153 - 🚀 开始插入测试数据...
+2025-12-07 14:23:42.603 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:23:42.603 | INFO     | __main__:add_texts:107 - ⏳ 正在生成 3 条文本的 Embeddings...
+2025-12-07 14:23:43.725 | SUCCESS  | __main__:upsert_vectors:83 - ✅ 成功插入/更新 3 条数据到集合 test_knowledge_base
+2025-12-07 14:23:43.726 | INFO     | __main__:<module>:157 - 🔍 开始搜索 '数据库'...
+2025-12-07 14:23:43.795 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:27:20.497 | SUCCESS  | __main__:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:27:20.497 | INFO     | __main__:create_collection_if_not_exists:53 - 集合已存在: test_knowledge_base
+2025-12-07 14:27:20.497 | INFO     | __main__:<module>:156 - 🚀 开始插入测试数据...
+2025-12-07 14:27:20.663 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:27:20.663 | INFO     | __main__:add_texts:107 - ⏳ 正在生成 3 条文本的 Embeddings...
+2025-12-07 14:27:21.390 | SUCCESS  | __main__:upsert_vectors:83 - ✅ 成功插入/更新 3 条数据到集合 test_knowledge_base
+2025-12-07 14:27:21.390 | INFO     | __main__:<module>:160 - 🔍 开始搜索 '数据库'...
+2025-12-07 14:27:21.472 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
