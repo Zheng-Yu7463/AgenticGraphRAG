@@ -320,3 +320,190 @@ page_content
 2025-12-07 14:27:21.390 | SUCCESS  | __main__:upsert_vectors:83 - ✅ 成功插入/更新 3 条数据到集合 test_knowledge_base
 2025-12-07 14:27:21.390 | INFO     | __main__:<module>:160 - 🔍 开始搜索 '数据库'...
 2025-12-07 14:27:21.472 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:40:56.202 | SUCCESS  | app.services.neo4j_service:_connect:24 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:40:56.212 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:40:56.424 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:40:56.485 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-07 14:40:56.486 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 14:42:10.417 | SUCCESS  | __main__:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:42:10.417 | INFO     | __main__:<module>:92 - 🚀 开始 Neo4j 测试...
+2025-12-07 14:42:10.746 | INFO     | __main__:<module>:103 - 写入结果: [{'name': 'Neo', 'role': 'The One'}]
+2025-12-07 14:42:10.773 | INFO     | __main__:close:34 - Neo4j 连接已关闭
+2025-12-07 14:42:27.075 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:42:27.080 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:42:27.287 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:42:27.347 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-07 14:42:27.348 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 14:44:12.976 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:44:12.981 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:44:13.195 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:44:13.195 | ERROR    | __main__:<module>:179 - ❌ 初始化失败: Collection entities not found
+2025-12-07 14:44:25.153 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:44:25.158 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:44:25.372 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:44:25.372 | ERROR    | __main__:<module>:179 - ❌ 初始化失败: Collection entities not found
+2025-12-07 14:44:43.488 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:44:43.493 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:44:43.698 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:44:43.698 | ERROR    | __main__:<module>:179 - ❌ 初始化失败: Collection test-collection not found
+2025-12-07 14:47:08.742 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:47:08.752 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:47:08.971 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:47:08.971 | WARNING  | __main__:_init_qdrant:35 - ⚠️ 集合 'test-collection' 不存在，正在自动创建...
+2025-12-07 14:47:09.557 | SUCCESS  | __main__:_init_qdrant:54 - ✅ 已创建新集合: test-collection (维度: 4096)
+2025-12-07 14:47:09.763 | SUCCESS  | __main__:_init_qdrant:62 - ✅ Qdrant实体库初始化完成
+2025-12-07 14:47:09.859 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-07 14:47:09.861 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 14:47:11.341 | INFO     | __main__:_extract_entities:121 - 提取实体: ['马斯克', '太空公司']
+2025-12-07 14:47:12.904 | INFO     | __main__:test:221 - 简要上下文: 
+2025-12-07 14:47:12.905 | INFO     | __main__:test:222 - 抽取实体: ['马斯克', '太空公司']
+2025-12-07 14:47:12.905 | INFO     | __main__:test:223 - 匹配实体: []
+2025-12-07 14:47:12.905 | INFO     | __main__:test:224 - 图谱: 
+2025-12-07 14:47:14.223 | INFO     | __main__:_extract_entities:121 - 提取实体: ['SpaceX', '星舰']
+2025-12-07 14:47:15.089 | INFO     | __main__:test:221 - 简要上下文: 
+2025-12-07 14:47:15.089 | INFO     | __main__:test:222 - 抽取实体: ['SpaceX', '星舰']
+2025-12-07 14:47:15.089 | INFO     | __main__:test:223 - 匹配实体: []
+2025-12-07 14:47:15.089 | INFO     | __main__:test:224 - 图谱: 
+2025-12-07 14:56:32.458 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:56:32.465 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:56:32.706 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:56:33.299 | SUCCESS  | __main__:_init_qdrant:62 - ✅ Qdrant实体库初始化完成
+2025-12-07 14:56:33.389 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: Qwen/Qwen3-30B-A3B-Thinking-2507 | Temp: 0.0
+2025-12-07 14:56:33.390 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 14:56:34.962 | INFO     | __main__:_extract_entities:121 - 提取实体: ['马斯克', '太空公司']
+2025-12-07 14:56:35.456 | INFO     | __main__:test:221 - 简要上下文: 
+2025-12-07 14:56:35.456 | INFO     | __main__:test:222 - 抽取实体: ['马斯克', '太空公司']
+2025-12-07 14:56:35.456 | INFO     | __main__:test:223 - 匹配实体: []
+2025-12-07 14:56:35.456 | INFO     | __main__:test:224 - 图谱: 
+2025-12-07 14:59:00.139 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 14:59:00.145 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 14:59:00.354 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 14:59:01.715 | SUCCESS  | __main__:_init_qdrant:62 - ✅ Qdrant实体库初始化完成
+2025-12-07 14:59:01.808 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-07 14:59:01.808 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 14:59:02.184 | WARNING  | __main__:_extract_entities:124 - 实体提取失败: Error code: 400 - {'error': {'message': 'This response_format type is unavailable now', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-12-07 14:59:02.184 | INFO     | __main__:search:93 - 未提取到实体，建议此处接入常规文本向量检索
+2025-12-07 14:59:02.184 | INFO     | __main__:test:221 - 简要上下文: 
+2025-12-07 14:59:02.184 | INFO     | __main__:test:222 - 抽取实体: []
+2025-12-07 15:11:02.956 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 15:11:02.965 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 15:11:03.187 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 15:11:03.719 | SUCCESS  | __main__:_init_qdrant:62 - ✅ Qdrant实体库初始化完成
+2025-12-07 15:11:03.809 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-07 15:11:03.809 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 15:11:25.307 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 15:11:25.312 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 15:11:25.493 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 15:11:26.128 | SUCCESS  | __main__:_init_qdrant:62 - ✅ Qdrant实体库初始化完成
+2025-12-07 15:11:26.221 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-07 15:11:26.221 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 15:11:26.222 | WARNING  | __main__:_extract_entities:120 - 实体提取失败: 'function' object has no attribute 'ainvoke'
+2025-12-07 15:11:26.222 | INFO     | __main__:search:89 - 未提取到实体，建议此处接入常规文本向量检索
+2025-12-07 15:11:26.222 | INFO     | __main__:test:217 - 简要上下文: 
+2025-12-07 15:11:26.222 | INFO     | __main__:test:218 - 抽取实体: []
+2025-12-07 15:16:35.339 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 15:16:35.349 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 15:16:35.571 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 15:16:36.199 | SUCCESS  | __main__:_init_qdrant:62 - ✅ Qdrant实体库初始化完成
+2025-12-07 15:16:36.293 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-07 15:16:36.293 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 15:16:38.215 | WARNING  | __main__:_extract_entities:120 - 实体提取失败: Failed to parse ExtractionFormat from completion {"entities": {"person": ["\u9a6c\u65af\u514b"], "company": ["\u592a\u7a7a\u516c\u53f8"]}}. Got: 1 validation error for ExtractionFormat
+entities
+  Input should be a valid list [type=list_type, input_value={'person': ['马斯克'],...pany': ['太空公司']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+2025-12-07 15:16:38.215 | INFO     | __main__:search:88 - 未提取到实体，建议此处接入常规文本向量检索
+2025-12-07 15:16:38.215 | INFO     | __main__:test:217 - 简要上下文: 
+2025-12-07 15:16:38.215 | INFO     | __main__:test:218 - 抽取实体: []
+2025-12-07 15:17:44.717 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 15:17:44.725 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 15:17:44.932 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 15:17:45.843 | SUCCESS  | __main__:_init_qdrant:62 - ✅ Qdrant实体库初始化完成
+2025-12-07 15:17:45.929 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-07 15:17:45.929 | SUCCESS  | __main__:__init__:26 - ✅ HybridSearch初始化完成
+2025-12-07 15:17:48.068 | WARNING  | __main__:_extract_entities:124 - 实体提取失败: Failed to parse ExtractionFormat from completion {"entities": {"person": ["\u9a6c\u65af\u514b"], "company": ["\u592a\u7a7a\u516c\u53f8"]}}. Got: 1 validation error for ExtractionFormat
+entities
+  Input should be a valid list [type=list_type, input_value={'person': ['马斯克'],...pany': ['太空公司']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+2025-12-07 15:17:48.068 | INFO     | __main__:search:88 - 未提取到实体，fallback 到纯向量检索
+2025-12-07 15:17:48.068 | INFO     | __main__:test:221 - 简要上下文: 
+2025-12-07 15:17:48.068 | INFO     | __main__:test:222 - 抽取实体: []
+2025-12-07 15:17:48.068 | INFO     | __main__:test:223 - 匹配实体: []
+2025-12-07 15:17:48.068 | INFO     | __main__:test:224 - 图谱: 无实体
+2025-12-07 15:17:50.777 | WARNING  | __main__:_extract_entities:124 - 实体提取失败: Failed to parse ExtractionFormat from completion {"entities": [{"name": "SpaceX", "type": "company"}, {"name": "\u661f\u8230", "type": "product"}]}. Got: 2 validation errors for ExtractionFormat
+entities.0
+  Input should be a valid string [type=string_type, input_value={'name': 'SpaceX', 'type': 'company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+entities.1
+  Input should be a valid string [type=string_type, input_value={'name': '星舰', 'type': 'product'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+2025-12-07 15:17:50.778 | INFO     | __main__:search:88 - 未提取到实体，fallback 到纯向量检索
+2025-12-07 15:17:50.778 | INFO     | __main__:test:221 - 简要上下文: 
+2025-12-07 15:17:50.778 | INFO     | __main__:test:222 - 抽取实体: []
+2025-12-07 15:17:50.778 | INFO     | __main__:test:223 - 匹配实体: []
+2025-12-07 15:17:50.778 | INFO     | __main__:test:224 - 图谱: 无实体
+2025-12-07 15:17:52.307 | WARNING  | __main__:_extract_entities:124 - 实体提取失败: Failed to parse ExtractionFormat from completion {"entities": {"company": ["\u7279\u65af\u62c9"], "location": ["\u4e2d\u56fd"]}}. Got: 1 validation error for ExtractionFormat
+entities
+  Input should be a valid list [type=list_type, input_value={'company': ['特斯拉'], 'location': ['中国']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+2025-12-07 15:17:52.308 | INFO     | __main__:search:88 - 未提取到实体，fallback 到纯向量检索
+2025-12-07 15:17:52.308 | INFO     | __main__:test:221 - 简要上下文: 
+2025-12-07 15:17:52.308 | INFO     | __main__:test:222 - 抽取实体: []
+2025-12-07 15:17:52.308 | INFO     | __main__:test:223 - 匹配实体: []
+2025-12-07 15:17:52.308 | INFO     | __main__:test:224 - 图谱: 无实体
+2025-12-07 15:19:33.601 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 15:19:33.610 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 15:19:33.833 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 15:19:35.547 | SUCCESS  | __main__:_init_qdrant:75 - ✅ Qdrant实体库初始化完成
+2025-12-07 15:19:35.640 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-07 15:19:35.640 | SUCCESS  | __main__:__init__:39 - ✅ HybridSearch初始化完成
+2025-12-07 15:19:37.957 | INFO     | __main__:_extract_entities:133 - 提取实体: ['马斯克', '太空公司']
+2025-12-07 15:19:38.797 | INFO     | __main__:test:233 - 简要上下文: 
+2025-12-07 15:19:38.797 | INFO     | __main__:test:234 - 抽取实体: ['马斯克', '太空公司']
+2025-12-07 15:19:38.797 | INFO     | __main__:test:235 - 匹配实体: []
+2025-12-07 15:19:38.797 | INFO     | __main__:test:236 - 图谱: 
+2025-12-07 15:19:41.110 | WARNING  | __main__:_extract_entities:136 - 实体提取失败: Failed to parse ExtractionFormat from completion {"entities": [{"name": "SpaceX", "type": "company"}, {"name": "\u661f\u8230", "type": "product"}]}. Got: 3 validation errors for ExtractionFormat
+entities.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=[{'name': 'SpaceX', 'type...', 'type': 'product'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/dict_type
+entities.list[str].0
+  Input should be a valid string [type=string_type, input_value={'name': 'SpaceX', 'type': 'company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+entities.list[str].1
+  Input should be a valid string [type=string_type, input_value={'name': '星舰', 'type': 'product'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+2025-12-07 15:19:41.110 | INFO     | __main__:search:101 - 未提取到实体，fallback 到纯向量检索
+2025-12-07 15:19:41.111 | INFO     | __main__:test:233 - 简要上下文: 
+2025-12-07 15:19:41.111 | INFO     | __main__:test:234 - 抽取实体: []
+2025-12-07 15:19:41.111 | INFO     | __main__:test:235 - 匹配实体: []
+2025-12-07 15:19:41.111 | INFO     | __main__:test:236 - 图谱: 无实体
+2025-12-07 15:19:42.965 | INFO     | __main__:_extract_entities:133 - 提取实体: ['特斯拉', '中国']
+2025-12-07 15:19:43.201 | INFO     | __main__:test:233 - 简要上下文: 
+2025-12-07 15:19:43.201 | INFO     | __main__:test:234 - 抽取实体: ['特斯拉', '中国']
+2025-12-07 15:19:43.201 | INFO     | __main__:test:235 - 匹配实体: []
+2025-12-07 15:19:43.201 | INFO     | __main__:test:236 - 图谱: 
+2025-12-07 15:21:32.290 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 15:21:32.299 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 15:21:32.515 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 15:21:33.081 | SUCCESS  | __main__:_init_qdrant:97 - ✅ Qdrant实体库初始化完成
+2025-12-07 15:21:33.171 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-07 15:21:33.172 | SUCCESS  | __main__:__init__:61 - ✅ HybridSearch初始化完成
+2025-12-07 15:21:34.846 | INFO     | __main__:_extract_entities:160 - 提取实体: ['马斯克', 'SpaceX']
+2025-12-07 15:21:35.876 | INFO     | __main__:test:260 - 简要上下文: 
+2025-12-07 15:21:35.876 | INFO     | __main__:test:261 - 抽取实体: ['马斯克', 'SpaceX']
+2025-12-07 15:21:35.876 | INFO     | __main__:test:262 - 匹配实体: []
+2025-12-07 15:21:35.876 | INFO     | __main__:test:263 - 图谱: 
+2025-12-07 15:21:37.310 | INFO     | __main__:_extract_entities:160 - 提取实体: ['SpaceX', '星舰']
+2025-12-07 15:21:37.563 | INFO     | __main__:test:260 - 简要上下文: 
+2025-12-07 15:21:37.563 | INFO     | __main__:test:261 - 抽取实体: ['SpaceX', '星舰']
+2025-12-07 15:21:37.563 | INFO     | __main__:test:262 - 匹配实体: []
+2025-12-07 15:21:37.564 | INFO     | __main__:test:263 - 图谱: 
+2025-12-07 15:21:38.755 | INFO     | __main__:_extract_entities:160 - 提取实体: ['特斯拉', '中国']
+2025-12-07 15:21:39.517 | INFO     | __main__:test:260 - 简要上下文: 
+2025-12-07 15:21:39.517 | INFO     | __main__:test:261 - 抽取实体: ['特斯拉', '中国']
+2025-12-07 15:21:39.518 | INFO     | __main__:test:262 - 匹配实体: []
+2025-12-07 15:21:39.518 | INFO     | __main__:test:263 - 图谱: 

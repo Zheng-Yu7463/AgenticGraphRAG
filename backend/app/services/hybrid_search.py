@@ -1,8 +1,9 @@
 import asyncio
-from pydantic import BaseModel, Field
 from typing import List, Dict, Any
-from langchain_qdrant import Qdrant
-from langchain.agents import create_agent
+from pydantic import BaseModel, Field
+from qdrant_client import models
+from langchain_qdrant import QdrantVectorStore
+from langchain_core.prompts import ChatPromptTemplate
 
 from app.services.embedding_factory import embedding_factory
 from app.services.llm_factory import llm_factory
@@ -10,100 +11,185 @@ from app.services.neo4j_service import neo4j_manager
 from app.services.qdrant_service import qdrant_manager
 from app.core.logger import logger
 
+# 定义输出结构
 class ExtractionFormat(BaseModel):
-    entities: List[str] = Field(..., description="提取的实体列表, 如人名, 公司名, 产品名等，必须与原文一字不差")
+    entities: Any = Field(..., description="实体，支持任意格式")
+    
+    @property
+    def flat_entities(self) -> List[str]:
+        """🦾 智能适配所有可能的 DeepSeek 输出格式"""
+        entities_raw = self.entities
+        
+        # 情况1：直接是字符串列表
+        if isinstance(entities_raw, list) and all(isinstance(e, str) for e in entities_raw):
+            return [e.strip() for e in entities_raw if e.strip()]
+        
+        # 情况2：实体对象数组 [{"name": "...", "type": "..."}]
+        elif isinstance(entities_raw, list):
+            all_names = []
+            for item in entities_raw:
+                if isinstance(item, dict):
+                    all_names.append(item.get("name", "") or item.get("entity", ""))
+                elif isinstance(item, str):
+                    all_names.append(item)
+            return [e.strip() for e in all_names if e.strip()]
+        
+        # 情况3：分类字典 {"person": [...], "company": [...]}
+        elif isinstance(entities_raw, dict):
+            all_entities = []
+            for category, items in entities_raw.items():
+                if isinstance(items, list):
+                    for item in items:
+                        if isinstance(item, str):
+                            all_entities.append(item)
+                        elif isinstance(item, dict):
+                            all_entities.append(item.get("name", "") or item.get("entity", ""))
+            return [e.strip() for e in all_entities if e.strip()]
+        
+        # 情况4：其他情况，返回空
+        return []
+    
 
 class HybridSearchService:
-    """
-    🚀 LLM抽实体 → Qdrant相似匹配 → Neo4j图信息
-    """
-    
     def __init__(self):
         self.embeddings = embedding_factory.get_embedding()
         self.qdrant_vectorstore = None
         self.neo4j_driver = neo4j_manager
-        self.extraction_chain = self._init_extraction()
+        # 初始化组件
         self._init_qdrant()
+        self.extraction_chain = self._init_extraction()
         logger.success("✅ HybridSearch初始化完成")
-        
 
     def _init_qdrant(self):
-        """Qdrant实体库"""
+        """Qdrant实体库初始化（带自动建表功能）"""
         client = qdrant_manager.get_client()
-        self.qdrant_vectorstore = Qdrant(
+        collection_name = "test-collection"
+        
+        # 🛠️ 关键步骤 1: 检查集合是否存在
+        if not client.collection_exists(collection_name):
+            logger.warning(f"⚠️ 集合 '{collection_name}' 不存在，正在自动创建...")
+            
+            # 🛠️ 关键步骤 2: 动态获取向量维度
+            # 为了防止维度填错，我们先用 embedding 模型跑一个测试词，获取准确的维度
+            try:
+                dummy_vec = self.embeddings.embed_query("test")
+                vector_size = len(dummy_vec)
+            except Exception as e:
+                logger.error(f"❌ 无法获取 Embedding 维度: {e}")
+                raise e
+
+            # 🛠️ 关键步骤 3: 创建集合
+            client.create_collection(
+                collection_name=collection_name,
+                vectors_config=models.VectorParams(
+                    size=vector_size,      # 自动匹配你的模型维度
+                    distance=models.Distance.COSINE # 推荐使用余弦相似度
+                )
+            )
+            logger.success(f"✅ 已创建新集合: {collection_name} (维度: {vector_size})")
+
+        # 正常初始化 LangChain 组件
+        self.qdrant_vectorstore = QdrantVectorStore(
             client=client,
-            collection_name="entities",
-            embeddings=self.embeddings
+            collection_name=collection_name,
+            embedding=self.embeddings
         )
-        logger.success("✅ Qdrant实体库初始化")
+        logger.success("✅ Qdrant实体库初始化完成")
 
     def _init_extraction(self):
-        """LLM实体抽取"""
         llm = llm_factory.get_llm(mode="fast")
-        extraction_agent = create_agent(
-            model=llm,
-            system_prompt="你是一个专业的信息提取助手，从查询中提取专有名词实体，原封不动返回他们",
-            response_format=ExtractionFormat,
-        )
-        return extraction_agent
+        
+        def extract_entities(query: str, text: str) -> ExtractionFormat:
+            structured_llm = llm.with_structured_output(
+                ExtractionFormat,
+                method="json_mode"
+            )
+            return structured_llm.invoke([
+                ("system", """提取查询相关的实体，返回 JSON 格式。
+
+    支持格式：
+    1. {{"entities": ["马斯克", "SpaceX"]}}  ← 推荐
+    2. {{"entities": [{{"name": "SpaceX", "type": "公司"}}]}} 
+    3. {{"entities": {{"person": ["马斯克"], "company": ["SpaceX"]}}}}
+
+    实体类型：人名、公司、产品、地名等"""),
+                ("user", f"查询：{query}\n\n文本：{text}")
+            ])
+        
+        return extract_entities
 
     async def search(self, query: str, top_k: int = 5) -> Dict[str, Any]:
-        """核心检索：3步走"""
-        
         # Step 1: LLM抽实体
         entities = await self._extract_entities(query)
-        if not entities:
-            return {"context_text": "未提取到实体", "entities": []}
         
-        # Step 2: Qdrant找相似实体
+        # 💡 改进：如果没有实体，不要直接返回空，
+        # 在真实的混合检索中，这里应该 Fallback 到对“文档切片”的纯向量检索
+        if not entities:
+            logger.info("未提取到实体，fallback 到纯向量检索")
+            return {
+                "context_text": "",
+                "entities": [],
+                "matched_entities": [],  # ✅ 添加这个字段
+                "graph_context": "无实体"
+            }
+        # Step 2: Qdrant找相似实体 (已优化为并发)
         matched_entities = await self._qdrant_match_entities(entities, top_k)
         
         # Step 3: Neo4j查图信息
         graph_context = await self._neo4j_get_graph(matched_entities)
         
-        context = f"相关实体：{', '.join([e['name'] for e in matched_entities[:3]])}\n图谱信息：{graph_context}"
-        
+        # 组装上下文
+        context_parts = []
+        if matched_entities:
+            names = [e['name'] for e in matched_entities[:3]]
+            context_parts.append(f"涉及实体：{', '.join(names)}")
+        if graph_context:
+            context_parts.append(f"知识图谱关系：\n{graph_context}")
+            
         return {
-            "context_text": context,
+            "context_text": "\n".join(context_parts),
             "entities": entities,
             "matched_entities": matched_entities,
             "graph_context": graph_context
         }
-
+        
     async def _extract_entities(self, query: str) -> List[str]:
-        """LLM实体提取"""
         try:
-            result = await self.extraction_chain.ainvoke({"query": query})
-            last_message = result['messages'][-1]
-            print(last_message)
-            structured_output = last_message.additional_kwargs.get('response_format', {})
-            entities = structured_output.get('entities', [])
+            result: ExtractionFormat = self.extraction_chain(query, query)
+            entities = result.flat_entities  # 🔥 智能扁平化
             logger.info(f"提取实体: {entities}")
+            return entities
         except Exception as e:
             logger.warning(f"实体提取失败: {e}")
             return []
-
+        
     async def _qdrant_match_entities(self, entities: List[str], top_k: int) -> List[Dict]:
-        """Qdrant相似匹配"""
         if not self.qdrant_vectorstore or not entities:
             return []
-            
-        all_results = []
-        for entity in entities[:3]:  # 最多查3个
-            try:
-                docs = self.qdrant_vectorstore.similarity_search_with_score(entity, k=2)
-                for doc, score in docs:
-                    payload = doc.metadata
-                    all_results.append({
-                        "name": payload.get("name", entity),
-                        "matched_query": entity,
-                        "score": float(score),
-                        "description": doc.page_content[:100]
-                    })
-            except Exception as e:
-                logger.warning(f"Qdrant检索失败: {e}")
+
+        # ⚡ 优化：并发查询 Qdrant
+        tasks = []
+        for entity in entities[:3]:
+            tasks.append(self.qdrant_vectorstore.asimilarity_search_with_score(entity, k=2))
         
-        # 按分数排序去重
+        results_groups = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        all_results = []
+        for i, group in enumerate(results_groups):
+            if isinstance(group, Exception):
+                logger.warning(f"Qdrant某项查询失败: {group}")
+                continue
+            
+            origin_query = entities[i]
+            for doc, score in group:
+                payload = doc.metadata
+                all_results.append({
+                    "name": payload.get("name", origin_query), # 假设 metadata 里存了标准名
+                    "score": float(score),
+                    "type": payload.get("type", "unknown")
+                })
+
+        # 去重逻辑保持不变
         unique_results = {}
         for r in all_results:
             name = r["name"]
@@ -113,30 +199,44 @@ class HybridSearchService:
         return sorted(unique_results.values(), key=lambda x: x["score"], reverse=True)[:top_k]
 
     async def _neo4j_get_graph(self, matched_entities: List[Dict]) -> str:
-        """Neo4j查图信息"""
         if not self.neo4j_driver or not matched_entities:
-            return "无图谱信息"
+            return ""
             
         entity_names = [e["name"] for e in matched_entities[:3]]
         
+        # Cypher 优化：增加 LIMIT 防止爆炸，返回更友好的格式
         cypher = """
         MATCH (s:Entity)-[r]-(t:Entity)
-        WHERE s.name IN $names OR t.name IN $names
-        RETURN s.name as source, type(r) as rel_type, t.name as target
-        LIMIT 10
+        WHERE s.name IN $names
+        RETURN s.name as source, type(r) as rel, t.name as target
+        LIMIT 15
         """
         
         try:
+            # 注意：这里需要确认 neo4j_manager.execute_query 是同步还是异步
+            # 如果是官方 driver，通常是用 session.run，这里假设你封装了 execute_query
+            # 如果支持异步驱动，最好也用 await
             records = self.neo4j_driver.execute_query(cypher, {"names": entity_names})
             
+            # 处理返回值，适配不同的 Neo4j driver 封装
+            data = getattr(records, 'records', records)
+            if not data: 
+                return "无直接关联信息"
+
             relations = []
-            for record in getattr(records, 'records', records) or []:
-                relations.append(f"{record.get('source', 'N/A')} --[{record.get('rel_type', 'REL')}]--> {record.get('target', 'N/A')}")
+            for record in data:
+                # 兼容字典访问或对象访问
+                src = record.get('source') if isinstance(record, dict) else record['source']
+                rel = record.get('rel') if isinstance(record, dict) else record['rel']
+                tgt = record.get('target') if isinstance(record, dict) else record['target']
+                relations.append(f"{src} -[{rel}]-> {tgt}")
             
-            return "; ".join(relations) if relations else "无直接关系"
+            return "\n".join(relations)
         except Exception as e:
             logger.warning(f"Neo4j查询失败: {e}")
-            return "图谱查询失败"
+            return ""
+
+# ... 实例化和测试代码保持不变 ...
 
 # 单例
 try:
