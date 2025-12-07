@@ -507,3 +507,18 @@ For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/erro
 2025-12-07 15:21:39.517 | INFO     | __main__:test:261 - 抽取实体: ['特斯拉', '中国']
 2025-12-07 15:21:39.518 | INFO     | __main__:test:262 - 匹配实体: []
 2025-12-07 15:21:39.518 | INFO     | __main__:test:263 - 图谱: 
+2025-12-07 15:45:41.935 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-07 15:45:41.947 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-07 15:45:42.175 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-07 15:45:43.997 | SUCCESS  | app.services.hybrid_search:_init_qdrant:97 - ✅ Qdrant实体库初始化完成
+2025-12-07 15:45:44.092 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-07 15:45:44.093 | SUCCESS  | app.services.hybrid_search:__init__:61 - ✅ HybridSearch初始化完成
+2025-12-07 15:45:44.095 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-07 15:45:44.098 | INFO     | app.core.nodes.retrieval:retrieve_node:11 - 🔍 [检索节点] 开始检索: 马斯克的太空公司叫什么？
+2025-12-07 15:45:45.919 | INFO     | app.services.hybrid_search:_extract_entities:160 - 提取实体: ['马斯克', 'SpaceX']
+2025-12-07 15:45:46.784 | INFO     | app.core.nodes.generation:generation_node:37 - 🧠 [生成节点] 正在生成回答...
+2025-12-07 15:45:54.352 | SUCCESS  | app.core.nodes.generation:generation_node:50 - ✅ 回答生成完毕
+2025-12-07 15:45:54.356 | INFO     | app.core.nodes.retrieval:retrieve_node:11 - 🔍 [检索节点] 开始检索: 它最著名的火箭是什么？
+2025-12-07 15:45:56.103 | INFO     | app.services.hybrid_search:_extract_entities:160 - 提取实体: ['SpaceX', '火箭']
+2025-12-07 15:45:57.322 | INFO     | app.core.nodes.generation:generation_node:37 - 🧠 [生成节点] 正在生成回答...
+2025-12-07 15:46:13.939 | SUCCESS  | app.core.nodes.generation:generation_node:50 - ✅ 回答生成完毕
