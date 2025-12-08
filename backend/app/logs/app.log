@@ -1061,3 +1061,13 @@ For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/erro
 2025-12-08 11:14:31.339 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
 2025-12-08 11:14:31.340 | SUCCESS  | app.services.hybrid_search:__init__:66 - ✅ HybridSearch初始化完成
 2025-12-08 11:14:31.340 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:225 - 🚀 HybridSearchService 全局实例已创建
+2025-12-08 11:17:27.528 | INFO     | app.main:lifespan:21 - 🛑 服务正在关闭...
+2025-12-08 11:17:30.313 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-08 11:17:30.540 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-08 11:17:30.542 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-08 11:17:30.568 | INFO     | app.main:lifespan:17 - 🔄 正在初始化核心服务...
+2025-12-08 11:17:30.631 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-08 11:17:30.636 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-08 11:17:31.200 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-08 11:17:31.200 | SUCCESS  | app.services.hybrid_search:__init__:66 - ✅ HybridSearch初始化完成
+2025-12-08 11:17:31.200 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:225 - 🚀 HybridSearchService 全局实例已创建
