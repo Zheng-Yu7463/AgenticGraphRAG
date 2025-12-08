@@ -2,10 +2,9 @@ from fastapi import APIRouter
 from datetime import datetime
 import os
 
-# 导入服务模块 (使用模块导入方式避免 None 问题)
 import app.services.neo4j_service as neo4j_svc
 import app.services.qdrant_service as qdrant_svc
-from app.services.llm_factory import llm_factory
+from app.core.config import settings
 from app.services.embedding_factory import embedding_factory
 from app.api.schemas import SystemHealthResponse, ComponentStatus, ModelConfigInfo
 
@@ -50,34 +49,39 @@ async def get_model_configs():
     """
     configs = []
     
-    # 获取环境变量中的配置 (只读，不泄露 Key)
+    # 获取环境变量中的配置
     # LLM Fast
     configs.append(ModelConfigInfo(
         model_type="LLM (Fast)",
-        model_name=os.getenv("MODEL_FAST", "unknown"),
-        provider=os.getenv("LLM_BASE_URL", "default"),
-        parameters={"temperature": 0.0} # 假设值，或者去 factory 里读
+        model_name=settings.MODEL_FAST,
+        provider=settings.LLM_BASE_URL,
+        parameters={"temperature": settings.LLM_FAST_TEMPERATURE}
     ))
     
     # LLM Smart
     configs.append(ModelConfigInfo(
         model_type="LLM (Smart)",
-        model_name=os.getenv("MODEL_SMART", "unknown"),
-        provider=os.getenv("LLM_BASE_URL", "default"),
-        parameters={"temperature": 0.7}
+        model_name=settings.MODEL_SMART,
+        provider=settings.LLM_BASE_URL,
+        parameters={"temperature": settings.LLM_SMART_TEMPERATURE}
+    ))
+    
+    # LLM Strict
+    configs.append(ModelConfigInfo(
+        model_type="LLM (Strict)",
+        model_name=settings.MODEL_STRICT,
+        provider=settings.LLM_BASE_URL,
+        parameters={"temperature": settings.LLM_STRICT_TEMPERATURE}
     ))
     
     # Embedding
-    # 获取 Embedding 维度 (需要实例化一下或者存个 config)
-    emb_model = embedding_factory.get_embedding()
-    # 尝试获取模型名 (不同厂商属性不同，这里是一个通用尝试)
-    model_name = getattr(emb_model, "model", "unknown") 
     
     configs.append(ModelConfigInfo(
         model_type="Embedding",
-        model_name=model_name,
-        provider="HuggingFace/Local",
-        parameters={"dimension": "Dynamic (checked on init)"}
+        model_name=settings.EMBD_MODEL_NAME,
+        provider=settings.EMBD_BASE_URL,
+        dimensions=settings.EMBD_DIMENSIONS,
+        parameters={}
     ))
 
     return {"models": configs}

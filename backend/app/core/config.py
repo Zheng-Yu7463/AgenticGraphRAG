@@ -22,6 +22,10 @@ class Settings(BaseSettings):
     MODEL_FAST: str = "gpt-4o-mini" 
     MODEL_STRICT: str = "gpt-4o"
 
+    LLM_FAST_TEMPERATURE: float = 0.0
+    LLM_SMART_TEMPERATURE: float = 0.7
+    LLM_STRICT_TEMPERATURE: float = 0.0
+    
     # --- Neo4j 配置 (自动读取环境变量) ---
     NEO4J_URI: str = "bolt://localhost:7687"
     NEO4J_USERNAME: str = "neo4j"
