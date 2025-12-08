@@ -17,7 +17,6 @@ class ValidationResult(BaseModel):
 # 2. 初始化组件
 llm = llm_factory.get_llm(mode="smart")
 
-# ✅ 关键修复：使用通用解析器，而非 API 强绑定的 structured_output
 parser = PydanticOutputParser(pydantic_object=ValidationResult)
 
 # 3. 构建 Chain：Prompt -> LLM -> Parser

@@ -714,3 +714,71 @@ For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/erro
 2025-12-07 16:37:26.334 | INFO     | app.core.nodes.generation:generation_node:27 - 初步生成回答: SpaceX 著名的火箭主要包括以下型号，它们共同体现了公司在**可重复使用火箭**和**低成本航天...
 2025-12-07 16:37:26.336 | INFO     | app.core.nodes.validation:validation_node:30 - ⚖️ [VALIDATION] 正在校验...
 2025-12-07 16:37:52.009 | INFO     | app.core.nodes.validation:validation_node:47 -    - 结果: VALID | 理由: 回答直接回应了用户关于著名火箭的问题，准确列出了SpaceX的猎鹰1号、猎鹰9号、重型猎鹰和星舰，信息正确且无幻觉，在上下文缺失的情况下基于知识合理生成。
+2025-12-08 07:32:40.635 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-08 07:32:40.648 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-08 07:32:40.884 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-08 07:32:42.874 | SUCCESS  | app.services.hybrid_search:_init_qdrant:97 - ✅ Qdrant实体库初始化完成
+2025-12-08 07:32:42.967 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-08 07:32:42.967 | SUCCESS  | app.services.hybrid_search:__init__:61 - ✅ HybridSearch初始化完成
+2025-12-08 07:32:42.971 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-08 07:32:42.973 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-08 07:32:42.977 | INFO     | app.core.nodes.retrieval:retrieve_node:11 - 🔍 [RETRIEVAL] 开始检索: 马斯克的太空公司是什么
+2025-12-08 07:32:44.878 | INFO     | app.services.hybrid_search:_extract_entities:160 - 提取实体: ['马斯克', 'SpaceX']
+2025-12-08 07:32:45.653 | INFO     | app.core.nodes.retrieval:retrieve_node:21 -    - 找到实体: ['马斯克', 'SpaceX']
+2025-12-08 07:32:45.655 | INFO     | app.core.nodes.generation:generation_node:18 - 🧠 [GENERATION] 正在生成回答...
+2025-12-08 07:32:55.555 | INFO     | app.core.nodes.generation:generation_node:27 - 初步生成回答: 马斯克的太空公司是 **SpaceX**（全称：Space Exploration Technolo...
+2025-12-08 07:32:55.557 | INFO     | app.core.nodes.validation:validation_node:30 - ⚖️ [VALIDATION] 正在校验...
+2025-12-08 07:33:13.368 | INFO     | app.core.nodes.validation:validation_node:47 -    - 结果: VALID | 理由: 回答直接回应了用户问题，准确无误（SpaceX是马斯克的太空公司），且上下文无信息时回答合理。
+2025-12-08 07:33:13.372 | INFO     | app.core.nodes.retrieval:retrieve_node:11 - 🔍 [RETRIEVAL] 开始检索: 它有什么著名的火箭？
+2025-12-08 07:33:17.922 | INFO     | app.services.hybrid_search:_extract_entities:160 - 提取实体: ['火箭']
+2025-12-08 07:33:19.231 | INFO     | app.core.nodes.retrieval:retrieve_node:21 -    - 找到实体: ['火箭']
+2025-12-08 07:33:19.233 | INFO     | app.core.nodes.generation:generation_node:18 - 🧠 [GENERATION] 正在生成回答...
+2025-12-08 07:33:47.977 | INFO     | app.core.nodes.generation:generation_node:27 - 初步生成回答: SpaceX 以其**革命性的可重复使用火箭技术**而闻名，其最著名的火箭包括：
+
+### **1....
+2025-12-08 07:33:47.978 | INFO     | app.core.nodes.validation:validation_node:30 - ⚖️ [VALIDATION] 正在校验...
+2025-12-08 07:34:06.451 | INFO     | app.core.nodes.validation:validation_node:47 -    - 结果: VALID | 理由: 回答准确列出了SpaceX的著名火箭（猎鹰1号、猎鹰9号、猎鹰重型、星舰），信息正确且直接回应用户问题，无幻觉。
+2025-12-08 08:45:07.875 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-08 08:45:07.884 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-08 08:45:08.103 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-08 08:45:08.624 | SUCCESS  | __main__:_init_qdrant:99 - ✅ Qdrant实体库初始化完成
+2025-12-08 08:45:08.710 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-08 08:45:08.710 | SUCCESS  | __main__:__init__:63 - ✅ HybridSearch初始化完成
+2025-12-08 08:45:08.710 | WARNING  | __main__:_extract_entities:158 - 实体提取失败: 'RunnableSequence' object is not callable
+2025-12-08 08:45:08.710 | INFO     | __main__:search:123 - 未提取到实体，fallback 到纯向量检索
+2025-12-08 08:45:08.710 | INFO     | __main__:test:255 - 简要上下文: 
+2025-12-08 08:45:08.710 | INFO     | __main__:test:256 - 抽取实体: []
+2025-12-08 08:45:08.710 | INFO     | __main__:test:257 - 匹配实体: []
+2025-12-08 08:45:08.710 | INFO     | __main__:test:258 - 图谱: 无实体
+2025-12-08 08:45:08.710 | WARNING  | __main__:_extract_entities:158 - 实体提取失败: 'RunnableSequence' object is not callable
+2025-12-08 08:45:08.710 | INFO     | __main__:search:123 - 未提取到实体，fallback 到纯向量检索
+2025-12-08 08:45:08.710 | INFO     | __main__:test:255 - 简要上下文: 
+2025-12-08 08:45:08.710 | INFO     | __main__:test:256 - 抽取实体: []
+2025-12-08 08:45:08.710 | INFO     | __main__:test:257 - 匹配实体: []
+2025-12-08 08:45:08.710 | INFO     | __main__:test:258 - 图谱: 无实体
+2025-12-08 08:45:08.710 | WARNING  | __main__:_extract_entities:158 - 实体提取失败: 'RunnableSequence' object is not callable
+2025-12-08 08:45:08.710 | INFO     | __main__:search:123 - 未提取到实体，fallback 到纯向量检索
+2025-12-08 08:45:08.710 | INFO     | __main__:test:255 - 简要上下文: 
+2025-12-08 08:45:08.711 | INFO     | __main__:test:256 - 抽取实体: []
+2025-12-08 08:45:08.711 | INFO     | __main__:test:257 - 匹配实体: []
+2025-12-08 08:45:08.711 | INFO     | __main__:test:258 - 图谱: 无实体
+2025-12-08 08:47:21.222 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-08 08:47:21.234 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-08 08:47:21.461 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-08 08:47:22.470 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-08 08:47:22.470 | SUCCESS  | __main__:__init__:66 - ✅ HybridSearch初始化完成
+2025-12-08 08:47:24.303 | INFO     | __main__:_extract_entities:147 - 提取实体: ['马斯克']
+2025-12-08 08:47:24.523 | INFO     | __main__:test:235 - 简要上下文: 
+2025-12-08 08:47:24.523 | INFO     | __main__:test:236 - 抽取实体: ['马斯克']
+2025-12-08 08:47:24.524 | INFO     | __main__:test:237 - 匹配实体: []
+2025-12-08 08:47:24.524 | INFO     | __main__:test:238 - 图谱: 
+2025-12-08 08:47:26.201 | INFO     | __main__:_extract_entities:147 - 提取实体: ['SpaceX', '星舰']
+2025-12-08 08:47:26.511 | INFO     | __main__:test:235 - 简要上下文: 
+2025-12-08 08:47:26.512 | INFO     | __main__:test:236 - 抽取实体: ['SpaceX', '星舰']
+2025-12-08 08:47:26.512 | INFO     | __main__:test:237 - 匹配实体: []
+2025-12-08 08:47:26.512 | INFO     | __main__:test:238 - 图谱: 
+2025-12-08 08:47:27.912 | INFO     | __main__:_extract_entities:147 - 提取实体: ['特斯拉', '中国']
+2025-12-08 08:47:28.134 | INFO     | __main__:test:235 - 简要上下文: 
+2025-12-08 08:47:28.135 | INFO     | __main__:test:236 - 抽取实体: ['特斯拉', '中国']
+2025-12-08 08:47:28.135 | INFO     | __main__:test:237 - 匹配实体: []
+2025-12-08 08:47:28.135 | INFO     | __main__:test:238 - 图谱: 
