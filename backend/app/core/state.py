@@ -10,7 +10,7 @@ class AgentState(TypedDict):
     # 用户输入
     query: str
     
-    # 对话历史 (使用 add_messages 自动追加)
+    # ---------------- 历史对话 ----------------
     messages: Annotated[List[BaseMessage], add_messages]
     
     # ---------------- 检索数据 ----------------

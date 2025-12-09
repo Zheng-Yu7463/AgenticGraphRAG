@@ -27,6 +27,7 @@ async def generation_node(state: AgentState) -> Dict[str, Any]:
             "messages": state.get("messages", []),
             "question": state["query"]
         })
+        logger.info(f"🧠 [GENERATION] 生成完成: {response}")
         return {"answer": response}
     except Exception as e:
         return {"answer": "生成出错"}

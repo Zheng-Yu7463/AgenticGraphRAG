@@ -1278,3 +1278,95 @@ For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/erro
 2025-12-09 14:28:27.931 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
 2025-12-09 14:29:09.266 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答诚实承认了无法直接获取具体信息（由于上下文为空，检索失败），并提供了合理的建议和财务管理课程在第八周可能涉及的经典主题，这些主题基于通用知识是正确的。回答结构清晰，没有幻觉或逻辑错误，符合检索失败时的标准回应。 | 重试: 0
 2025-12-09 14:34:52.817 | INFO     | app.main:lifespan:21 - 🛑 服务正在关闭...
+2025-12-09 15:28:44.318 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-09 15:28:44.562 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-09 15:28:44.563 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-09 15:28:46.522 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-09 15:28:46.702 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-09 15:28:46.702 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-09 15:28:46.754 | INFO     | app.main:lifespan:17 - 🔄 正在初始化核心服务...
+2025-12-09 15:28:46.818 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-09 15:28:46.826 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-09 15:28:47.495 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-09 15:28:47.495 | SUCCESS  | app.services.hybrid_search:__init__:66 - ✅ HybridSearch初始化完成
+2025-12-09 15:28:47.496 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:225 - 🚀 HybridSearchService 全局实例已创建
+2025-12-09 16:01:33.848 | INFO     | app.api.endpoints:chat_sync:78 - 收到同步请求: 介绍一下马斯克的太空探索公司
+2025-12-09 16:01:33.866 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 介绍一下马斯克的太空探索公司
+2025-12-09 16:01:35.947 | INFO     | app.services.hybrid_search:_extract_entities:147 - 提取实体: ['马斯克', '太空探索公司']
+2025-12-09 16:01:36.641 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: ['马斯克', '太空探索公司']
+2025-12-09 16:01:36.644 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-09 16:02:06.488 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-09 16:02:40.118 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI的回答准确、全面且结构良好。它正确介绍了马斯克的太空探索公司（SpaceX），包括其成立时间、核心目标、关键成就（如可重复使用火箭、龙飞船、星舰、星链）、行业影响和未来愿景，所有信息基于常识判断均正确无误。尽管上下文为空，但生成的答案符合用户要求，无幻觉、逻辑错误或格式问题。 | 重试: 0
+2025-12-09 16:09:30.087 | INFO     | app.main:lifespan:21 - 🛑 服务正在关闭...
+2025-12-09 16:09:33.556 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-09 16:09:33.815 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-09 16:09:33.816 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-09 16:09:33.854 | INFO     | app.main:lifespan:17 - 🔄 正在初始化核心服务...
+2025-12-09 16:09:33.915 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-09 16:09:33.923 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-09 16:09:34.773 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-09 16:09:34.773 | SUCCESS  | app.services.hybrid_search:__init__:66 - ✅ HybridSearch初始化完成
+2025-12-09 16:09:34.773 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:225 - 🚀 HybridSearchService 全局实例已创建
+2025-12-09 16:09:40.922 | INFO     | app.api.endpoints:chat_sync:78 - 收到同步请求: 介绍一下马斯克的太空探索公司
+2025-12-09 16:09:40.925 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 介绍一下马斯克的太空探索公司
+2025-12-09 16:09:45.438 | INFO     | app.services.hybrid_search:_extract_entities:147 - 提取实体: ['马斯克', '太空探索公司']
+2025-12-09 16:09:45.768 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: ['马斯克', '太空探索公司']
+2025-12-09 16:09:45.770 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-09 16:10:23.764 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 马斯克的太空探索公司（SpaceX，全称**Space Exploration Technologies Corp.**）是一家由埃隆·马斯克于2002年创立的美国航天制造商和太空运输公司。其核心目标是**降低太空运输成本**，并最终实现**人类跨星球生存**（尤其是火星殖民）。以下是其关键信息：
+
+---
+
+### **1. 核心目标与理念**
+- **降低发射成本**：通过研发可重复使用的火箭，颠覆传统航天业一次性使用的高成本模式。
+- **火星殖民**：长期愿景是在火星建立自给自足的城市，使人类成为“多行星物种”。
+- **推动航天商业化**：开创了商业航天运输的新时代，与NASA等机构合作的同时也服务私营市场。
+
+---
+
+### **2. 主要成就与里程碑**
+- **火箭技术突破**：
+  - **猎鹰1号（Falcon 1）**：2008年首次成功发射的私人液体燃料火箭。
+  - **猎鹰9号（Falcon 9）**：全球首个实现**垂直回收并重复使用**的轨道级火箭，极大降低了发射成本。
+  - **重型猎鹰（Falcon Heavy）**：现役运力最强的火箭之一（仅次于星舰），可将大型卫星或飞船送往深空。
+- **载人航天**：
+  - **龙飞船（Dragon）**：首个由私营公司开发的载人飞船。2020年完成首次商业载人飞行（NASA宇航员送往国际空间站），结束了美国对俄罗斯飞船的依赖。
+- **星链（Starlink）**：
+  - 计划通过数万颗低轨卫星构建全球高速互联网网络，已发射超5000颗卫星，为偏远地区提供网络服务。
+- **星舰（Starship）**：
+  - 下一代完全可重复使用的超重型运载系统，设计用于载人登陆**月球、火星**，单次可运送100人或100吨货物。目前处于测试阶段，若成功将成为人类史上最强运载工具。
+
+---
+
+### **3. 商业模式与影响**
+- **商业发射主导者**：承担NASA、美国军方、商业公司等多方发射任务，占据全球商业发射市场主要份额。
+- **国际合作与竞争**：推动全球航天产业竞争，促使传统航天机构加速创新；同时与NASA深度合作（如月球阿尔忒弥斯计划）。
+- **技术开源倾向**：部分技术公开，以促进太空行业发展。
+
+---
+
+### **4. 争议与挑战**
+- **卫星星座争议**：星链卫星数量庞大，被批评影响天文观测、加剧太空轨道拥堵。
+- **火星殖民可行性**：技术、资金、伦理等问题仍存巨大挑战。
+- **安全与监管**：火箭测试和发射事故曾引发安全性质疑。
+
+---
+
+### **5. 未来计划**
+- **星舰商业化**：计划用于月球基地建设、火星任务、甚至地球点对点超高速旅行。
+- **持续迭代火箭技术**：进一步降低发射成本（目标每公斤载荷低至数百美元）。
+
+---
+
+SpaceX以其**技术创新、成本控制和激进愿景**重塑了航天产业，成为全球商业航天的领军者。其发展深刻影响着未来太空探索、通信乃至人类文明向太空扩展的进程。
+2025-12-09 16:10:23.767 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-09 16:10:55.855 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答准确、全面地介绍了马斯克的太空探索公司（SpaceX），涵盖了核心目标、成就、商业模式、争议和未来计划，信息正确且格式清晰，没有幻觉或错误。 | 重试: 0
+2025-12-09 16:15:11.149 | INFO     | app.main:lifespan:21 - 🛑 服务正在关闭...
+2025-12-09 16:15:13.976 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-09 16:15:14.221 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-09 16:15:14.222 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-09 16:15:14.250 | INFO     | app.main:lifespan:17 - 🔄 正在初始化核心服务...
+2025-12-09 16:15:14.317 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-09 16:15:14.322 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-09 16:15:15.053 | SUCCESS  | app.services.llm_factory:get_llm:80 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-09 16:15:15.053 | SUCCESS  | app.services.hybrid_search:__init__:66 - ✅ HybridSearch初始化完成
+2025-12-09 16:15:15.053 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:225 - 🚀 HybridSearchService 全局实例已创建
