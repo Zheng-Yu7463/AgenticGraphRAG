@@ -3,14 +3,15 @@ from typing import List, Dict, Any
 from pydantic import BaseModel, Field
 from langchain_qdrant import QdrantVectorStore
 from qdrant_client import models
-from langchain_core.output_parsers import PydanticOutputParser # ✅ 引入解析器
+from langchain_core.output_parsers import PydanticOutputParser
 
 from app.services.embedding_factory import embedding_factory
 from app.services.llm_factory import llm_factory
 from app.services.neo4j_service import neo4j_manager
 from app.services.qdrant_service import qdrant_manager
-from app.prompts.extraction import entity_extraction_prompt # ✅ 引入你刚新建的 Prompt
+from app.prompts.extraction import entity_extraction_prompt
 from app.core.logger import logger
+from app.core.config import settings
 
 # --- 数据结构定义 ---
 class ExtractionFormat(BaseModel):
@@ -68,7 +69,7 @@ class HybridSearchService:
     def _init_qdrant(self):
         """Qdrant实体库初始化（带自动建表功能）"""
         client = qdrant_manager.get_client()
-        collection_name = "test-collection"
+        collection_name = settings.COLLECTION_NAME
         
         if not client.collection_exists(collection_name):
             try:

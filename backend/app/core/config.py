@@ -40,6 +40,7 @@ class Settings(BaseSettings):
     # --- Qdrant 配置 (自动读取环境变量) ---
     QDRANT_URL: str = "./qdrant_data"
     QDRANT_API_KEY: str | None = None
+    COLLECTION_NAME: str = "test-collection"
 
     # --- Pydantic 魔法配置 ---
     model_config = SettingsConfigDict(

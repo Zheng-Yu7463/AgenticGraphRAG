@@ -130,7 +130,7 @@ class QdrantManager:
         if not client:
              return {"status": "down", "error": "Client init failed"}
              
-        collection_name = "test-collection" # 你的集合名
+        collection_name = settings.COLLECTION_NAME
         try:
             # 获取集合信息
             info = client.get_collection(collection_name)

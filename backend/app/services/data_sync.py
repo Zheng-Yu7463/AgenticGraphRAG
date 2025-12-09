@@ -8,10 +8,11 @@ from app.services.neo4j_service import neo4j_manager
 from app.services.qdrant_service import qdrant_manager
 from app.services.embedding_factory import embedding_factory
 from app.core.logger import logger
+from app.core.config import settings
 
 class DataSyncService:
     def __init__(self):
-        self.collection_name = "test-collection"
+        self.collection_name = settings.COLLECTION_NAME
 
     async def sync_knowledge_base(self) -> dict:
         logger.info("🔄 [Sync] Neo4j -> Qdrant 全量同步开始...")
