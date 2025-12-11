@@ -26,13 +26,11 @@ class DataSyncService:
         records = neo4j_manager.execute_query(cypher)
         data = getattr(records, 'records', records) or []
         
-        logger.info(f"🔄 [Sync] Neo4j 查询到 {len(data)} 条数据: {data}")
+        logger.info(f"🔄 [Sync] Neo4j 查询到 {len(data)} 条数据: {data[:10]}...")
         
         if not data:
             logger.warning("⚠️ Neo4j 为空，跳过同步")
             return {"status": "skipped", "reason": "neo4j_empty", "count": 0}
-        
-        logger.info(f"📊 Neo4j 查询到 {len(data)} 条实体")
         
         # 2. 构造文档
         documents: List[Document] = []
