@@ -1,6 +1,7 @@
 from typing import Dict, Any
 from app.core.state import AgentState
-from app.services.hybrid_search import hybrid_search_service
+import app.services.hybrid_search as search_service 
+
 from app.core.logger import logger
 
 async def retrieve_node(state: AgentState) -> Dict[str, Any]:
@@ -11,8 +12,14 @@ async def retrieve_node(state: AgentState) -> Dict[str, Any]:
     logger.info(f"🔍 [RETRIEVAL] 开始检索: {query}")
     
     try:
+        # ✅ 运行时动态从模块中获取最新的 service 实例
+        service = search_service.hybrid_search_service
+        
+        if service is None:
+            raise ValueError("HybridSearchService 尚未初始化！")
+
         # 调用混合检索服务
-        result = await hybrid_search_service.search(query)
+        result = await service.search(query)
         
         entities = result.get("entities", [])
         graph_ctx = result.get("graph_context", "")

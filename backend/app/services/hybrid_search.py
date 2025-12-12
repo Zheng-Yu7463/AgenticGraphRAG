@@ -1,19 +1,21 @@
 import asyncio
 from typing import List, Dict, Any
 from pydantic import BaseModel, Field
-from qdrant_client import models
 from langchain_qdrant import QdrantVectorStore
-from langchain_core.prompts import ChatPromptTemplate
+from qdrant_client import models
+from langchain_core.output_parsers import PydanticOutputParser
 
 from app.services.embedding_factory import embedding_factory
 from app.services.llm_factory import llm_factory
 from app.services.neo4j_service import neo4j_manager
 from app.services.qdrant_service import qdrant_manager
+from app.prompts.extraction import entity_extraction_prompt
 from app.core.logger import logger
+from app.core.config import settings
 
-# 定义输出结构
+# --- 数据结构定义 ---
 class ExtractionFormat(BaseModel):
-    entities: Any = Field(..., description="实体，支持任意格式")
+    entities: Any = Field(..., description="实体列表")
     
     @property
     def flat_entities(self) -> List[str]:
@@ -46,98 +48,81 @@ class ExtractionFormat(BaseModel):
                             all_entities.append(item.get("name", "") or item.get("entity", ""))
             return [e.strip() for e in all_entities if e.strip()]
         
-        # 情况4：其他情况，返回空
         return []
-    
 
 class HybridSearchService:
     def __init__(self):
         self.embeddings = embedding_factory.get_embedding()
         self.qdrant_vectorstore = None
         self.neo4j_driver = neo4j_manager
-        # 初始化组件
+        
+        # 1. 初始化 Qdrant
         self._init_qdrant()
+        
+        # 2. 初始化提取器 components
+        # 我们把 Parser 存为成员变量，以便后续获取 instructions
+        self.extraction_parser = PydanticOutputParser(pydantic_object=ExtractionFormat)
         self.extraction_chain = self._init_extraction()
+        
         logger.success("✅ HybridSearch初始化完成")
 
     def _init_qdrant(self):
         """Qdrant实体库初始化（带自动建表功能）"""
         client = qdrant_manager.get_client()
-        collection_name = "test-collection"
+        collection_name = settings.COLLECTION_NAME
         
-        # 🛠️ 关键步骤 1: 检查集合是否存在
         if not client.collection_exists(collection_name):
-            logger.warning(f"⚠️ 集合 '{collection_name}' 不存在，正在自动创建...")
-            
-            # 🛠️ 关键步骤 2: 动态获取向量维度
-            # 为了防止维度填错，我们先用 embedding 模型跑一个测试词，获取准确的维度
             try:
                 dummy_vec = self.embeddings.embed_query("test")
                 vector_size = len(dummy_vec)
-            except Exception as e:
-                logger.error(f"❌ 无法获取 Embedding 维度: {e}")
-                raise e
-
-            # 🛠️ 关键步骤 3: 创建集合
-            client.create_collection(
-                collection_name=collection_name,
-                vectors_config=models.VectorParams(
-                    size=vector_size,      # 自动匹配你的模型维度
-                    distance=models.Distance.COSINE # 推荐使用余弦相似度
+                client.create_collection(
+                    collection_name=collection_name,
+                    vectors_config=models.VectorParams(
+                        size=vector_size,
+                        distance=models.Distance.COSINE
+                    )
                 )
-            )
-            logger.success(f"✅ 已创建新集合: {collection_name} (维度: {vector_size})")
+                logger.success(f"✅ 已创建新集合: {collection_name}")
+            except Exception as e:
+                logger.error(f"❌ Qdrant 建表失败: {e}")
 
-        # 正常初始化 LangChain 组件
         self.qdrant_vectorstore = QdrantVectorStore(
             client=client,
             collection_name=collection_name,
             embedding=self.embeddings
         )
-        logger.success("✅ Qdrant实体库初始化完成")
 
     def _init_extraction(self):
+        """初始化提取链：Prompt | LLM | Parser"""
         llm = llm_factory.get_llm(mode="fast")
-        
-        def extract_entities(query: str, text: str) -> ExtractionFormat:
-            structured_llm = llm.with_structured_output(
-                ExtractionFormat,
-                method="json_mode"
-            )
-            return structured_llm.invoke([
-                ("system", """提取查询相关的实体，返回 JSON 格式。
-
-    支持格式：
-    1. {{"entities": ["马斯克", "SpaceX"]}}  ← 推荐
-    2. {{"entities": [{{"name": "SpaceX", "type": "公司"}}]}} 
-    3. {{"entities": {{"person": ["马斯克"], "company": ["SpaceX"]}}}}
-
-    实体类型：人名、公司、产品、地名等"""),
-                ("user", f"查询：{query}\n\n文本：{text}")
-            ])
-        
-        return extract_entities
+        # 构造 LCEL Chain
+        # 注意：这里我们使用了之前保存的 self.extraction_parser
+        chain = entity_extraction_prompt | llm | self.extraction_parser
+        return chain
 
     async def search(self, query: str, top_k: int = 5) -> Dict[str, Any]:
         # Step 1: LLM抽实体
         entities = await self._extract_entities(query)
         
-        # 💡 改进：如果没有实体，不要直接返回空，
-        # 在真实的混合检索中，这里应该 Fallback 到对“文档切片”的纯向量检索
         if not entities:
             logger.info("未提取到实体，fallback 到纯向量检索")
             return {
                 "context_text": "",
                 "entities": [],
-                "matched_entities": [],  # ✅ 添加这个字段
+                "matched_entities": [],
                 "graph_context": "无实体"
             }
-        # Step 2: Qdrant找相似实体 (已优化为并发)
+        
+        # Step 2: Qdrant找相似实体
         matched_entities = await self._qdrant_match_entities(entities, top_k)
+        
+        logger.info(f"🔍 [RETRIEVAL]: 匹配到实体: {matched_entities}")
         
         # Step 3: Neo4j查图信息
         graph_context = await self._neo4j_get_graph(matched_entities)
-        
+
+        logger.info(f"🔍 [RETRIEVAL]: 查找到图谱关系: {graph_context}")
+
         # 组装上下文
         context_parts = []
         if matched_entities:
@@ -145,31 +130,37 @@ class HybridSearchService:
             context_parts.append(f"涉及实体：{', '.join(names)}")
         if graph_context:
             context_parts.append(f"知识图谱关系：\n{graph_context}")
-            
         return {
             "context_text": "\n".join(context_parts),
             "entities": entities,
             "matched_entities": matched_entities,
             "graph_context": graph_context
         }
-        
+
     async def _extract_entities(self, query: str) -> List[str]:
+        """LLM实体提取"""
         try:
-            result: ExtractionFormat = self.extraction_chain(query, query)
-            entities = result.flat_entities  # 🔥 智能扁平化
+            # 🔴 核心修复：使用 .ainvoke() 而不是直接调用 ()
+            result: ExtractionFormat = await self.extraction_chain.ainvoke({
+                "query": query,
+                "text": query, # 这里假设 text 就是 query 本身
+                "format_instructions": self.extraction_parser.get_format_instructions()
+            })
+            
+            entities = result.flat_entities
             logger.info(f"提取实体: {entities}")
             return entities
         except Exception as e:
             logger.warning(f"实体提取失败: {e}")
             return []
-        
+
     async def _qdrant_match_entities(self, entities: List[str], top_k: int) -> List[Dict]:
         if not self.qdrant_vectorstore or not entities:
             return []
 
-        # ⚡ 优化：并发查询 Qdrant
         tasks = []
         for entity in entities[:3]:
+            # 并发查询
             tasks.append(self.qdrant_vectorstore.asimilarity_search_with_score(entity, k=2))
         
         results_groups = await asyncio.gather(*tasks, return_exceptions=True)
@@ -177,19 +168,17 @@ class HybridSearchService:
         all_results = []
         for i, group in enumerate(results_groups):
             if isinstance(group, Exception):
-                logger.warning(f"Qdrant某项查询失败: {group}")
                 continue
             
             origin_query = entities[i]
             for doc, score in group:
                 payload = doc.metadata
                 all_results.append({
-                    "name": payload.get("name", origin_query), # 假设 metadata 里存了标准名
+                    "name": payload.get("name", origin_query),
                     "score": float(score),
                     "type": payload.get("type", "unknown")
                 })
 
-        # 去重逻辑保持不变
         unique_results = {}
         for r in all_results:
             name = r["name"]
@@ -204,7 +193,6 @@ class HybridSearchService:
             
         entity_names = [e["name"] for e in matched_entities[:3]]
         
-        # Cypher 优化：增加 LIMIT 防止爆炸，返回更友好的格式
         cypher = """
         MATCH (s:Entity)-[r]-(t:Entity)
         WHERE s.name IN $names
@@ -213,19 +201,12 @@ class HybridSearchService:
         """
         
         try:
-            # 注意：这里需要确认 neo4j_manager.execute_query 是同步还是异步
-            # 如果是官方 driver，通常是用 session.run，这里假设你封装了 execute_query
-            # 如果支持异步驱动，最好也用 await
             records = self.neo4j_driver.execute_query(cypher, {"names": entity_names})
-            
-            # 处理返回值，适配不同的 Neo4j driver 封装
             data = getattr(records, 'records', records)
-            if not data: 
-                return "无直接关联信息"
+            if not data: return "无直接关联信息"
 
             relations = []
             for record in data:
-                # 兼容字典访问或对象访问
                 src = record.get('source') if isinstance(record, dict) else record['source']
                 rel = record.get('rel') if isinstance(record, dict) else record['rel']
                 tgt = record.get('target') if isinstance(record, dict) else record['target']
@@ -236,14 +217,19 @@ class HybridSearchService:
             logger.warning(f"Neo4j查询失败: {e}")
             return ""
 
-# ... 实例化和测试代码保持不变 ...
+hybrid_search_service = None
 
-# 单例
-try:
-    hybrid_search_service = HybridSearchService()
-except Exception as e:
-    logger.error(f"❌ 初始化失败: {e}")
-    hybrid_search_service = None
+def init_hybrid_search():
+    """
+    在 FastAPI 启动时调用此函数进行初始化
+    """
+    global hybrid_search_service
+    try:
+        hybrid_search_service = HybridSearchService()
+        logger.success("🚀 HybridSearchService 全局实例已创建")
+    except Exception as e:
+        logger.error(f"❌ HybridSearchService 初始化失败: {e}")
+
 
 if __name__ == "__main__":
     async def test():

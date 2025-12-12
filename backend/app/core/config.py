@@ -22,10 +22,14 @@ class Settings(BaseSettings):
     MODEL_FAST: str = "gpt-4o-mini" 
     MODEL_STRICT: str = "gpt-4o"
 
+    LLM_FAST_TEMPERATURE: float = 0.0
+    LLM_SMART_TEMPERATURE: float = 0.7
+    LLM_STRICT_TEMPERATURE: float = 0.0
+    
     # --- Neo4j 配置 (自动读取环境变量) ---
     NEO4J_URI: str = "bolt://localhost:7687"
     NEO4J_USERNAME: str = "neo4j"
-    NEO4J_PASSWORD: str 
+    NEO4J_PASSWORD: str
     
     # --- 嵌入模型配置 ---
     EMBD_BASE_URL: str = "https://api.siliconflow.cn/v1/"
@@ -36,6 +40,7 @@ class Settings(BaseSettings):
     # --- Qdrant 配置 (自动读取环境变量) ---
     QDRANT_URL: str = "./qdrant_data"
     QDRANT_API_KEY: str | None = None
+    COLLECTION_NAME: str = "test-collectin"
 
     # --- Pydantic 魔法配置 ---
     model_config = SettingsConfigDict(

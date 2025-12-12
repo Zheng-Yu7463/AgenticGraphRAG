@@ -11,11 +11,12 @@ class LLMFactory:
     用于根据不同的任务需求（模式），生产配置不同的 LangChain ChatModel 实例
     支持 create_agent 高层 API 和低层 ChatOpenAI 使用
     """
-    
-    @staticmethod
-    def get_llm(
-        mode: Literal["smart", "fast", "strict"] = "smart"
-    ) -> BaseChatModel:
+    def __init__(self):
+        self.fast_model = self.init_llm(mode="fast")
+        self.smart_model = self.init_llm(mode="smart")
+        self.strict_model = self.init_llm(mode="strict")
+
+    def init_llm(self, mode: Literal["smart", "fast", "strict"] = "smart") -> BaseChatModel:
         """
         获取 LLM 实例的核心方法
         
@@ -85,6 +86,22 @@ class LLMFactory:
         except Exception as e:
             logger.error(f"❌ LLM 初始化失败 (Mode: {mode}): {str(e)}")
             raise
+   
+    
+    @staticmethod
+    def get_llm(
+        mode: Literal["smart", "fast", "strict"] = "smart"
+    ) -> BaseChatModel:
+        if mode == "fast":
+            return llm_factory.fast_model
+        elif mode == "smart":
+            return llm_factory.smart_model
+        elif mode == "strict":
+            return llm_factory.strict_model
+        else:
+            error_msg = f"❌ 未知的 LLM 模式: {mode}，支持: smart/fast/strict"
+            logger.error(error_msg)
+            raise ValueError(error_msg)
         
 llm_factory = LLMFactory()
 

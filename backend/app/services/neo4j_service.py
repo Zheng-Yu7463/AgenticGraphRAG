@@ -79,6 +79,22 @@ class Neo4jManager:
         query = "MATCH (n) DETACH DELETE n"
         self.execute_query(query)
         logger.success("🗑️ Neo4j 数据库已清空")
+        
+    def check_health(self) -> Dict[str, Any]:
+        """检查 Neo4j 连接状态"""
+        if not self._driver:
+            return {"status": "down", "error": "Driver not initialized"}
+        
+        try:
+            # 验证连接
+            self._driver.verify_connectivity()
+            return {
+                "status": "healthy",
+                "address": self.uri
+            }
+        except Exception as e:
+            logger.error(f"Neo4j 健康检查失败: {e}")
+            return {"status": "down", "error": str(e)}
 
 # --- 单例导出 ---
 try:

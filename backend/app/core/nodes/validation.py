@@ -1,69 +1,58 @@
+# app/core/nodes/validation.py
 from typing import Dict, Any, Literal
 from pydantic import BaseModel, Field
 from langchain_core.messages import AIMessage
-from langchain_core.output_parsers import PydanticOutputParser # ✅ 引入解析器
+from langchain_core.output_parsers import PydanticOutputParser
 
 from app.core.state import AgentState
 from app.services.llm_factory import llm_factory
 from app.prompts.validation import validation_prompt
 from app.core.logger import logger
 
-# 1. 定义输出结构
+# 1. 更新校验结果结构
 class ValidationResult(BaseModel):
-    is_valid: bool = Field(..., description="回答是否有效且准确，true或false")
-    reason: str = Field(..., description="简短的判断理由")
-    status: Literal["valid", "invalid"] = Field(..., description="状态字符串")
+    is_valid: bool = Field(..., description="是否通过")
+    reason: str = Field(..., description="理由")
+    # ✅ 核心修改：明确下一步动作
+    action: Literal["pass", "retry_retrieval", "retry_generation"] = Field(..., description="下一步动作")
 
-# 2. 初始化组件
 llm = llm_factory.get_llm(mode="smart")
-
-# ✅ 关键修复：使用通用解析器，而非 API 强绑定的 structured_output
 parser = PydanticOutputParser(pydantic_object=ValidationResult)
-
-# 3. 构建 Chain：Prompt -> LLM -> Parser
 chain = validation_prompt | llm | parser
 
 async def validation_node(state: AgentState) -> Dict[str, Any]:
-    """
-    ⚖️ 校验节点 (通用兼容版)
-    """
-    logger.info("⚖️ [VALIDATION] 正在校验...")
+    logger.info("⚖️ [VALIDATION] 正在评估...")
     
-    query = state["query"]
-    answer = state["answer"]
-    context = state.get("rag_context", "")
+    # 获取当前重试次数 (默认为0)
+    current_retry = state.get("retry_count", 0)
     
     try:
-        # 执行校验
-        # ✅ 必须传入 format_instructions，LangChain 会自动生成一段
-        # "The output should be formatted as a JSON instance..." 的指令
         score: ValidationResult = await chain.ainvoke({
-            "question": query,
-            "answer": answer,
-            "context": context,
+            "question": state["query"],
+            "answer": state["answer"],
+            "context": state.get("rag_context", ""),
             "format_instructions": parser.get_format_instructions() 
         })
         
-        logger.info(f"   - 结果: {score.status.upper()} | 理由: {score.reason}")
+        logger.info(f"   - 动作: {score.action} | 理由: {score.reason} | 重试: {current_retry}")
         
-        # 处理最终回答
-        final_answer = answer
+        # 逻辑：如果还要重试，就 +1；如果通过了，就不用动了
+        next_retry_count = current_retry + 1 if score.action != "pass" else current_retry
         
-        # 如果校验不通过，给回答打上补丁
-        if not score.is_valid:
-            final_answer = f"⚠️ [系统提示: 此回答可能存在偏差]\n{answer}\n\n(校验员备注: {score.reason})"
-        
+        # ⚠️ 关键技巧：把校验失败的原因放入 state，这样 Generate 节点重试时能看到“错在哪了”
         return {
-            "validation_status": score.status,
+            "validation_status": score.action, # pass / retry_retrieval / retry_generation
             "validation_reason": score.reason,
-            "answer": final_answer,
-            "messages": [AIMessage(content=final_answer)] # 确认无误，写入记忆
+            "retry_count": next_retry_count,
+            # 如果通过了，才写入 messages；没通过就不写，等待下一次循环
+            "messages": [AIMessage(content=state["answer"])] if score.action == "pass" else []
         }
         
     except Exception as e:
-        logger.warning(f"⚠️ [VALIDATION] 校验解析失败: {e}，默认放行")
+        logger.error(f"校验失败: {e}")
+        # 出错默认放行，防止死循环
         return {
-            "validation_status": "error",
-            "validation_reason": "JSON Parse Error",
-            "messages": [AIMessage(content=answer)]
+            "validation_status": "pass",
+            "messages": [AIMessage(content=state["answer"])],
+            "retry_count": current_retry
         }

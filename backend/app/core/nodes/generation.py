@@ -11,23 +11,23 @@ llm = llm_factory.get_llm(mode="smart")
 chain = rag_generation_prompt | llm | StrOutputParser()
 
 async def generation_node(state: AgentState) -> Dict[str, Any]:
-    """
-    🧠 生成节点
-    注意：这里只生成内容，不更新 messages 历史，历史更新留给 Validation 节点。
-    """
-    logger.info("🧠 [GENERATION] 正在生成回答...")
+    logger.info("🧠 [GENERATION] 生成中...")
     
+    # 检查是否有校验失败的反馈
+    feedback = ""
+    if state.get("validation_reason") and state.get("retry_count", 0) > 0:
+        feedback = f"\n\n⚠️ 上一次生成的回答未通过校验，原因是：{state['validation_reason']}。请根据此反馈改进回答。"
+        logger.warning(f"   - 接收到重试反馈: {state['validation_reason']}")
+
+    current_context = state.get("rag_context", "") + feedback
+
     try:
         response = await chain.ainvoke({
-            "context": state.get("rag_context", ""),
+            "context": current_context, # 传入带反馈的上下文
             "messages": state.get("messages", []),
             "question": state["query"]
         })
-        
-        logger.info(f"初步生成回答: {response[:50]}...")
-        
+        logger.info(f"🧠 [GENERATION] 生成完成: {response}")
         return {"answer": response}
-        
     except Exception as e:
-        logger.error(f"❌ [GENERATION] 失败: {e}")
-        return {"answer": "抱歉，生成回答时出现错误。"}
+        return {"answer": "生成出错"}
