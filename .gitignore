@@ -5,4 +5,5 @@ __pycache__/
 .idea/
 logs/
 *.log
+.DS_Store
 /backend/qdrant_data/
