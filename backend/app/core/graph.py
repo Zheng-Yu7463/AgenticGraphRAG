@@ -20,7 +20,6 @@ def router_logic(state: AgentState) -> Literal["retrieve", "generate", END]:
         return END
     
     # 2. 超过最大重试次数 (3次)，强制结束
-    # 注意：这里的 retry_count 已经在 validation node 里 +1 了
     if retry_count > 3:
         print("🛑 [Router] 超过最大重试次数 (3次)，强制放行")
         return END
@@ -50,7 +49,7 @@ workflow.set_entry_point("retrieve")
 workflow.add_edge("retrieve", "generate")
 workflow.add_edge("generate", "validate")
 
-# 4. ✅ 设置条件边
+# 4. 设置条件边
 workflow.add_conditional_edges(
     "validate",      # 从校验节点出来
     router_logic,    # 进入路由函数

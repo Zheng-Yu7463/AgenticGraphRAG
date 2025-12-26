@@ -4,15 +4,27 @@ from typing import List, Optional, Dict, Any
 # 接收用户的请求
 class ChatRequest(BaseModel):
     query: str = Field(..., description="用户的问题", example="马斯克的太空公司是什么")
-    thread_id: str = Field(..., description="会话ID，用于记忆上下文", example="user_123")
+    thread_id: Optional[str] = Field(None, description="会话ID，用于记忆上下文", example="user_123")
     stream: bool = Field(False, description="是否开启流式输出")
 
 # 响应给用户的结构 (非流式模式下使用)
 class ChatResponse(BaseModel):
+    thread_id: str
     answer: str
     sources: List[str] = []      # 引用了哪些实体
     graph_data: str = ""         # 图谱信息 (可选，用于前端可视化)
     validation_status: str = ""  # 校验状态
+
+
+class ChatHistoryRequest(BaseModel):
+    thread_id: str = Field(..., description="会话ID")
+
+
+class ThreadSummary(BaseModel):
+    thread_id: str
+    title: str
+    updated_at: str = ""
+    message_count: int = 0
     
 class ComponentStatus(BaseModel):
     name: str
