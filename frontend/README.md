@@ -1,73 +1,21 @@
-# AgenticGraphRAG
+# AgenticGraphRAG Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue 3 + Vite + TypeScript 脚手架，后续用于对接 FastAPI LangGraph 后端。目前仅保留默认示例页面，可在此基础上接入 `/api/v1/chat` 等接口。
 
-## Recommended IDE Setup
+## 环境要求
+- Node.js 20.19+ 或 22.12+
+- 推荐 VS Code + Volar（关闭 Vetur）
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+## 常用命令
+```bash
+npm install          # 安装依赖
+npm run dev          # 本地开发
+npm run build        # 生产构建
+npm run lint         # ESLint + Oxlint
+npm run test:unit    # Vitest
+npm run test:e2e     # Playwright（需先 npx playwright install）
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
-
-```sh
-# Install browsers for the first run
-npx playwright install
-
-# When testing on CI, must build the project first
-npm run build
-
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## 开发提示
+- API Base URL 可通过 Vite 环境变量自行添加（例如 `.env.local` 中配置 `VITE_API_BASE=http://localhost:8000`），然后在请求封装里读取。
+- 现有页面是 Vite 默认模版，接入后端时可直接替换 `src/views/HomeView.vue`、`src/App.vue` 等。

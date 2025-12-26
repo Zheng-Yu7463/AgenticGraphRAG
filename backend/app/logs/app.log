@@ -1094,3 +1094,39 @@ Elon Musk -[FOUNDER_OF]-> SpaceX
 2025-12-26 19:50:49.640 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
 2025-12-26 19:50:49.641 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
 2025-12-26 19:50:49.641 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
+2025-12-26 20:01:18.097 | INFO     | app.main:lifespan:37 - 🛑 服务关闭
+2025-12-26 20:01:23.499 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-26 20:01:23.503 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-26 20:01:23.503 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-26 20:01:24.236 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-26 20:01:24.319 | INFO     | app.main:lifespan:14 - 🚀 服务启动中...
+2025-12-26 20:01:24.365 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-26 20:01:37.375 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-26 20:01:37.968 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
+2025-12-26 20:01:37.969 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
+2025-12-26 20:01:37.970 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
+2025-12-26 20:27:33.224 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-26 20:27:33.226 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-26 20:27:33.226 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-26 20:27:34.068 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-26 20:27:38.333 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-26 20:27:38.334 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-26 20:27:38.334 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-26 20:27:38.954 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-26 20:27:39.034 | INFO     | app.main:lifespan:14 - 🚀 服务启动中...
+2025-12-26 20:27:39.081 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-26 20:27:54.827 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-26 20:27:55.390 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
+2025-12-26 20:27:55.390 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
+2025-12-26 20:27:55.391 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
+2025-12-26 20:50:23.954 | INFO     | app.main:lifespan:37 - 🛑 服务关闭
+2025-12-26 20:50:31.021 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-26 20:50:31.023 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-26 20:50:31.023 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-26 20:50:31.916 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-26 20:50:32.004 | INFO     | app.main:lifespan:14 - 🚀 服务启动中...
+2025-12-26 20:50:32.052 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-26 20:50:49.280 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-26 20:51:01.762 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
+2025-12-26 20:51:01.768 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
+2025-12-26 20:51:01.786 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
