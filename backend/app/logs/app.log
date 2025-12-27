@@ -1130,3 +1130,31 @@ Elon Musk -[FOUNDER_OF]-> SpaceX
 2025-12-26 20:51:01.762 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
 2025-12-26 20:51:01.768 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
 2025-12-26 20:51:01.786 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
+2025-12-26 21:01:10.731 | INFO     | app.api.endpoints:chat_stream:87 - 收到请求: 你好 (ID: thread-1766754070731-fa85bc)
+2025-12-26 21:01:10.762 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 你好
+2025-12-26 21:01:12.064 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-26 21:01:12.065 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-26 21:01:12.065 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-26 21:01:12.068 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-26 21:01:15.717 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好！有什么可以帮你的吗？ 😊
+2025-12-26 21:01:15.719 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-26 21:01:34.430 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答是礼貌且适当的问候回应，符合用户的问题。上下文为空，但问题不需要额外检索信息，回答正确且无错误。 | 重试: 0
+2025-12-26 21:02:16.817 | ERROR    | app.api.endpoints:chat_stream:84 - 指定的 thread_id 不存在: thread-1766754070731-fa85bc
+2025-12-26 21:05:28.223 | INFO     | app.api.endpoints:chat_stream:87 - 收到请求: 你好 (ID: thread-1766749569980-4fdb70)
+2025-12-26 21:05:28.244 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 你好
+2025-12-26 21:05:29.490 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-26 21:05:29.490 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-26 21:05:29.491 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-26 21:05:29.492 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-26 21:05:37.887 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好！很高兴为你提供帮助。请问有什么可以为你解答的问题吗？
+2025-12-26 21:05:37.889 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-26 21:05:58.257 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 正确回应了用户的问候，提供了礼貌和适当的帮助邀请，符合社交礼仪，没有错误或幻觉。 | 重试: 0
+2025-12-26 21:07:49.241 | INFO     | app.api.endpoints:chat_stream:87 - 收到请求: 你好 (ID: thread-1766749569980-4fdb70)
+2025-12-26 21:07:49.256 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 你好
+2025-12-26 21:07:50.683 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-26 21:07:50.683 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-26 21:07:50.684 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-26 21:07:50.685 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-26 21:07:56.845 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好！欢迎再次联系。如果你有任何问题或需要帮助，随时告诉我，我会尽力为你解答。😊
+2025-12-26 21:07:56.847 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-26 21:08:21.915 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI的回答正确回应了用户的问候，礼貌且提供帮助，符合社交规范，没有错误或幻觉。 | 重试: 0

@@ -6,3 +6,4 @@ __pycache__/
 logs/
 *.log
 /backend/qdrant_data/
+/frontend/node_modules/
