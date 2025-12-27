@@ -1158,3 +1158,299 @@ Elon Musk -[FOUNDER_OF]-> SpaceX
 2025-12-26 21:07:56.845 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好！欢迎再次联系。如果你有任何问题或需要帮助，随时告诉我，我会尽力为你解答。😊
 2025-12-26 21:07:56.847 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
 2025-12-26 21:08:21.915 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI的回答正确回应了用户的问候，礼貌且提供帮助，符合社交规范，没有错误或幻觉。 | 重试: 0
+2025-12-27 16:27:35.900 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-27 16:27:35.900 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-27 16:27:35.901 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-27 16:27:36.703 | ERROR    | app.services.neo4j_service:_connect:27 - ❌ Neo4j 连接失败: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [Errno 61] Connection refused)
+2025-12-27 16:27:38.478 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-27 16:27:38.479 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-27 16:27:38.479 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-27 16:27:38.779 | ERROR    | app.services.neo4j_service:_connect:27 - ❌ Neo4j 连接失败: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [Errno 61] Connection refused)
+2025-12-27 16:27:38.847 | INFO     | app.main:lifespan:14 - 🚀 服务启动中...
+2025-12-27 16:27:38.868 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-27 16:27:49.720 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-27 16:27:52.132 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
+2025-12-27 16:27:52.133 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
+2025-12-27 16:27:52.133 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
+2025-12-27 16:28:07.811 | INFO     | app.api.endpoints:chat_stream:87 - 收到请求: 你好 (ID: thread-1766824087811-4f1c30)
+2025-12-27 16:28:07.835 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 你好
+2025-12-27 16:28:09.267 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 16:28:09.268 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 16:28:09.268 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 16:28:09.270 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 16:28:12.991 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好！有什么我可以帮助你的吗？
+2025-12-27 16:28:12.992 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 16:28:33.427 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答是礼貌和适当的问候回应，符合社交规范，无需检索或修改。 | 重试: 0
+2025-12-27 16:30:49.765 | INFO     | app.main:lifespan:37 - 🛑 服务关闭
+2025-12-27 16:30:54.154 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-27 16:30:54.156 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-27 16:30:54.156 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-27 16:30:54.696 | ERROR    | app.services.neo4j_service:_connect:27 - ❌ Neo4j 连接失败: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [Errno 61] Connection refused)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [Errno 61] Connection refused)
+2025-12-27 16:30:54.744 | INFO     | app.main:lifespan:14 - 🚀 服务启动中...
+2025-12-27 16:30:54.767 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-27 16:31:06.708 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-27 16:31:07.241 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
+2025-12-27 16:31:07.242 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
+2025-12-27 16:31:07.243 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
+2025-12-27 16:34:52.954 | INFO     | app.main:lifespan:37 - 🛑 服务关闭
+2025-12-27 16:34:56.167 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-27 16:34:56.168 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-27 16:34:56.168 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-27 16:34:56.759 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-27 16:34:56.813 | INFO     | app.main:lifespan:14 - 🚀 服务启动中...
+2025-12-27 16:34:56.835 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-27 16:35:07.639 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-27 16:35:09.347 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
+2025-12-27 16:35:09.347 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
+2025-12-27 16:35:09.348 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
+2025-12-27 16:35:32.800 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 你好 (ID: thread-1766824532799-2e49b9)
+2025-12-27 16:35:32.816 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 你好
+2025-12-27 16:35:34.015 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 16:35:34.015 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 16:35:34.015 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 16:35:34.017 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 16:35:37.968 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好呀！很高兴见到你。有什么我可以帮助你的吗？😊
+2025-12-27 16:35:37.970 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 16:36:02.796 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答是友好且适当的问候回应，符合用户问题的意图，即使上下文为空，基于常识判断正确。 | 重试: 0
+2025-12-27 16:41:10.561 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 可以介绍一下latex吗 (ID: thread-1766824532799-2e49b9)
+2025-12-27 16:41:10.582 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 可以介绍一下latex吗
+2025-12-27 16:41:11.875 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 16:41:11.875 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 16:41:11.875 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 16:41:11.877 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 16:41:31.124 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 当然可以！LaTeX（发音为“拉泰赫”或“雷泰克”）是一种基于TeX的高质量**排版系统**，特别适用于生成科学、技术和学术文档。
+
+### 核心特点：
+1. **专业排版**：LaTeX能自动处理复杂的排版元素，如页码、章节标题、交叉引用、目录、参考文献列表等，确保文档结构清晰、格式统一美观。
+2. **数学公式**：它是数学、物理、计算机科学等领域的事实标准，能轻松排版复杂数学符号和公式。
+3. **内容与格式分离**：作者只需用纯文本和特定命令描述文档结构和内容（如章节、引用），LaTeX引擎会自动处理字体、布局等格式细节。
+4. **免费开源**：跨平台运行，拥有庞大的用户社区和丰富的扩展包。
+
+### 常见用途：
+- 学术论文、学位论文（如博士论文）
+- 科技期刊文章、书籍
+- 包含大量公式、图表或算法的文档
+- 生成幻灯片（使用Beamer类）
+
+### 工作方式：
+用户编写一个`.tex`格式的纯文本文件（包含内容和命令），通过LaTeX引擎（如PDFLaTeX、XeLaTeX）编译，最终生成PDF文档。
+
+### 学习建议：
+- 对于新手，**Overleaf**是一个优秀的在线协作平台，无需安装即可使用，提供模板和实时预览。
+- 学习基础语法（如命令、环境）后，可通过社区和文档（如CTAN资源库）逐渐掌握高级功能。
+
+虽然LaTeX有一定学习门槛，但其在处理复杂、结构化文档时的效率和专业性远超常规文字处理器（如Word），尤其适合科研、工程领域的长期需求。
+2025-12-27 16:41:31.126 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 16:41:48.752 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI的回答准确、全面地介绍了LaTeX，包括其定义、核心特点、用途、工作方式和学习建议，内容正确且结构清晰，没有幻觉或逻辑错误。上下文为空，但AI基于知识生成的回答完美满足用户需求。 | 重试: 0
+2025-12-27 16:49:39.452 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 你好 (ID: thread-1766825379451-2456bb)
+2025-12-27 16:49:39.467 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 你好
+2025-12-27 16:49:40.590 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 16:49:40.590 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 16:49:40.591 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 16:49:40.591 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 16:49:46.663 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好！很高兴为您服务。有什么可以帮您的吗？
+2025-12-27 16:49:46.664 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 16:50:02.717 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答礼貌、适当，直接回应了用户的问候，没有幻觉、逻辑错误或格式问题。上下文为空，但无需检索，回答根据常识判断正确。 | 重试: 0
+2025-12-27 17:06:56.660 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 你好 (ID: thread-1766826416659-23be64)
+2025-12-27 17:06:56.683 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 你好
+2025-12-27 17:06:57.988 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:06:57.989 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:06:57.989 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:06:57.990 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:07:02.842 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好！很高兴为你提供帮助。有什么我可以为你解答的问题吗？
+2025-12-27 17:07:02.844 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:07:26.238 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答礼貌且合适，对用户问候 '你好' 进行了恰当的回应，并主动提供帮助。即使上下文为空，回答基于通用知识判断正确，无错误或格式问题。 | 重试: 0
+2025-12-27 17:08:42.559 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 1+1=？ (ID: thread-1766826522559-3a6713)
+2025-12-27 17:08:42.562 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 1+1=？
+2025-12-27 17:08:43.635 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:08:43.635 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:08:43.636 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:08:43.636 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:08:52.598 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 1+1=2。这是基础的算术运算结果。
+2025-12-27 17:08:52.600 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:09:10.617 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI的回答正确，1+1=2是基础算术事实，无需依赖上下文检索。 | 重试: 0
+2025-12-27 17:09:23.724 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 123123 (ID: thread-1766826563724-3e2b38)
+2025-12-27 17:09:23.733 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 123123
+2025-12-27 17:09:25.119 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:09:25.120 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:09:25.120 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:09:25.121 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:09:33.536 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 您好！看起来您可能发送了一段测试信息或不小心按到了键盘。如果您有任何问题或需要帮助的地方，请随时告诉我，我很乐意为您提供帮助！😊
+2025-12-27 17:09:33.537 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:09:56.954 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI's response is appropriate and helpful for the ambiguous user input (a numeric string), politely assuming it might be a test message or accidental input, and encouraging the user to provide more details. There are no hallucinations, logical errors, or format issues. | 重试: 0
+2025-12-27 17:10:13.643 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 333222333 (ID: thread-1766826613643-3a4dce)
+2025-12-27 17:10:13.646 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 333222333
+2025-12-27 17:10:14.895 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:10:14.895 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:10:14.896 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:10:14.897 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:10:22.793 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 333222333
+2025-12-27 17:10:22.794 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:11:27.924 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: retry_retrieval | 理由: 检索上下文为空，AI 的回答只是重复用户问题，没有提供任何有用的信息或解释。这表明检索可能失败，导致 AI 无法生成适当的响应。 | 重试: 0
+2025-12-27 17:11:27.927 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 333222333
+2025-12-27 17:11:29.050 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:11:29.050 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:11:29.050 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:11:29.051 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:11:29.051 | WARNING  | app.core.nodes.generation:generation_node:20 -    - 接收到重试反馈: 检索上下文为空，AI 的回答只是重复用户问题，没有提供任何有用的信息或解释。这表明检索可能失败，导致 AI 无法生成适当的响应。
+2025-12-27 17:11:35.625 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 您好！我注意到您发送了两段相同的数字“333222333”，但没有附带具体问题或说明。如果您有特定的疑问、需要解读这段数字的含义，或者有其他需要帮助的地方，请随时告诉我详细需求，我会尽力为您提供帮助！ 😊
+2025-12-27 17:11:35.628 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:12:01.010 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答恰当，它正确识别了用户输入为不明确的数字序列，并礼貌地请求更多信息以提供帮助，避免了在不明确情况下的幻觉或错误。 | 重试: 1
+2025-12-27 17:12:43.028 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 999 (ID: thread-1766826763028-45daff)
+2025-12-27 17:12:43.031 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 999
+2025-12-27 17:12:44.200 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:12:44.200 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:12:44.200 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:12:44.201 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:12:57.363 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: “999” 通常在不同语境下有不同的含义，但最常见的是指紧急电话号码。具体来说：
+
+1. **紧急电话号码**：在英国、爱尔兰和部分英联邦国家（如新加坡、马来西亚），999 是官方紧急服务号码，用于联系警察、消防或救护车等紧急救援服务。
+
+2. **其他地区的变体**：不同国家有不同的紧急号码，例如：
+   - 美国、加拿大：911
+   - 欧盟国家：112（通用且通常与本地号码并行）
+   - 澳大利亚：000
+   - 日本：110（警察）、119（消防/救护车）
+
+3. **其他含义**：
+   - 在一些文化中，999 可能被视作象征性的数字（如与好运或完成相关）。
+   - 有时也指代药品“999感冒灵”等品牌，但需结合具体语境判断。
+
+如果您需要紧急帮助，请根据所在地区拨打正确的紧急号码。如果有具体情境或问题，可以提供更多信息以便获得更准确的解答。
+2025-12-27 17:12:57.364 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:13:22.080 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI的回答准确解释了'999'作为紧急电话号码的含义，并提供了相关国家的变体和其他语境下的可能含义，内容正确、全面，没有事实错误或幻觉，符合一般知识。 | 重试: 0
+2025-12-27 17:13:50.217 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 13331 (ID: thread-1766826830217-97d74e)
+2025-12-27 17:13:50.222 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 13331
+2025-12-27 17:13:51.307 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:13:51.307 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:13:51.307 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:13:51.308 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:13:59.218 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你提到的“13331”可能是一个特定的错误代码、产品编号或其他标识符，但目前我无法直接确定它的具体含义。
+
+如果你能提供更多上下文信息（例如它出现在什么系统、设备或情境中），我可以帮助你更准确地查找或解释。
+2025-12-27 17:13:59.219 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:14:15.093 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI的回答正确识别了数字'13331'可能是一个标识符，但在缺乏上下文的情况下无法确定具体含义，并合理请求更多信息。回答没有幻觉或错误，符合处理不确定查询的最佳实践。 | 重试: 0
+2025-12-27 17:19:51.398 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 123 (ID: thread-1766826830217-97d74e)
+2025-12-27 17:19:51.409 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 123
+2025-12-27 17:19:52.626 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:19:52.626 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:19:52.626 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:19:52.627 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:20:04.697 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你重复输入了“123”，这可能是一个简单的测试，也可能是指某个具体的代码、编号或简写。不过，单独的数字“123”通常用于示例、测试或代表基础步骤（如“ABC，123”），在技术或日常语境中也可能作为错误代码、商品型号或密码出现。
+
+如果你在某个具体场景中遇到它（例如软件报错、设备显示、文档编号等），可以提供更多细节，我会尽力帮你分析。
+2025-12-27 17:20:04.699 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:21:03.066 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 你好 (ID: thread-1766827263066-2ad4ca)
+2025-12-27 17:21:03.069 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 你好
+2025-12-27 17:21:04.826 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: []
+2025-12-27 17:21:04.826 | INFO     | app.services.hybrid_search:search:108 - 未提取到实体，fallback 到纯向量检索
+2025-12-27 17:21:04.826 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: []
+2025-12-27 17:21:04.828 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:21:08.763 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: 你好！很高兴为你提供帮助。有什么我可以为你做的吗？
+2025-12-27 17:21:08.765 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:21:32.567 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答是标准且适当的问候回应，没有错误。用户问题简单，不需要检索，回答正确。 | 重试: 0
+2025-12-27 17:24:38.472 | ERROR    | app.api.endpoints:chat_sync:108 - 指定的 thread_id 不存在: test-1
+2025-12-27 17:24:44.279 | INFO     | app.api.endpoints:chat_sync:111 - 收到同步请求: 介绍一下Elon Musk在中国的产业 (ID: thread-1766827484279-e3429c)
+2025-12-27 17:24:44.338 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 介绍一下Elon Musk在中国的产业
+2025-12-27 17:24:46.362 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: ['Elon Musk', '中国']
+2025-12-27 17:24:47.375 | INFO     | app.services.hybrid_search:search:119 - 🔍 [RETRIEVAL]: 匹配到实体: [{'name': '中国', 'score': 0.9999800092854085, 'type': 'Company'}, {'name': 'PET', 'score': 0.9876982451589552, 'type': 'Technology'}, {'name': '沙利文', 'score': 0.5588669100562965, 'type': 'Company'}, {'name': '蒋文', 'score': 0.5438733336626124, 'type': 'Person'}]
+2025-12-27 17:24:48.152 | INFO     | app.services.hybrid_search:search:124 - 🔍 [RETRIEVAL]: 查找到图谱关系: 无直接关联信息
+2025-12-27 17:24:48.152 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: ['Elon Musk', '中国']
+2025-12-27 17:24:48.153 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 17:25:06.026 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: Elon Musk 在中国的产业主要集中在特斯拉（Tesla）公司，此外还涉及部分与 SpaceX 相关的业务合作。以下是主要概况：
+
+1. **特斯拉超级工厂（上海）**  
+   特斯拉在上海建设的超级工厂是其在美国以外的首个大规模生产基地，于 2019 年投产。该工厂生产 Model 3 和 Model Y 等车型，不仅供应中国市场，还出口到欧洲和亚太地区。该工厂对特斯拉的全球产能和成本控制起到了关键作用。
+
+2. **特斯拉在华业务扩展**  
+   除了生产，特斯拉在中国建立了广泛的销售网络、充电基础设施（超级充电站和目的地充电站）以及本地化服务团队。特斯拉还于 2021 年在上海设立了数据中心，以实现数据存储本地化。
+
+3. **供应链合作**  
+   特斯拉与中国多家电池、零部件供应商合作，例如宁德时代（CATL）为其供应电池，进一步深化了与中国新能源汽车产业链的整合。
+
+4. **SpaceX 的潜在合作**  
+   尽管 SpaceX 尚未在中国设立实体产业，但曾有中国企业与 SpaceX 在卫星发射、零部件供应等方面进行过商业合作。不过，由于航天领域的政策限制，相关合作较为有限。
+
+5. **其他业务**  
+   Elon Musk 旗下的 SolarCity（太阳能）和 Neuralink（脑机接口）等公司目前在中国没有显著产业布局，但未来可能会探索市场机会。
+
+总体而言，特斯拉是中国新能源汽车市场的重要参与者，其上海工厂被视为外资在华投资的成功案例之一，也为中国电动汽车产业链的发展带来了技术和市场推动力。Elon Musk 的其他产业在中国的影响相对较小，但特斯拉的快速发展显示了其对中国市场的重视。
+2025-12-27 17:25:06.027 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 17:25:38.865 | INFO     | app.core.nodes.validation:validation_node:37 -    - 动作: pass | 理由: AI 的回答准确介绍了 Elon Musk 在中国的产业，主要基于特斯拉上海工厂及相关业务，内容正确无误，尽管检索未提供直接信息，但生成答案符合常识，无幻觉或逻辑错误。 | 重试: 0
+2025-12-27 20:40:05.010 | INFO     | app.main:lifespan:37 - 🛑 服务关闭
+2025-12-27 20:40:11.465 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: fast | Model: deepseek-chat | Temp: 0.0
+2025-12-27 20:40:11.480 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: smart | Model: deepseek-reasoner | Temp: 0.7
+2025-12-27 20:40:11.480 | SUCCESS  | app.services.llm_factory:init_llm:81 - ✅ LLM 已初始化 | Mode: strict | Model: deepseek-reasoner | Temp: 0.0
+2025-12-27 20:40:12.081 | SUCCESS  | app.services.neo4j_service:_connect:25 - ✅ Neo4j 连接成功: bolt://localhost:7687
+2025-12-27 20:40:12.138 | INFO     | app.main:lifespan:14 - 🚀 服务启动中...
+2025-12-27 20:40:12.161 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-27 20:40:23.022 | SUCCESS  | app.services.qdrant_service:_connect:26 - ✅ Qdrant 客户端初始化成功: ./qdrant_data
+2025-12-27 20:40:23.495 | SUCCESS  | app.services.hybrid_search:__init__:67 - ✅ HybridSearch初始化完成
+2025-12-27 20:40:23.495 | SUCCESS  | app.services.hybrid_search:init_hybrid_search:229 - 🚀 HybridSearchService 全局实例已创建
+2025-12-27 20:40:23.496 | INFO     | app.main:lifespan:30 - ✅ 知识库已就绪
+2025-12-27 20:45:13.720 | INFO     | app.services.data_sync:sync_knowledge_base:18 - 🔄 [Sync] Neo4j -> Qdrant 全量同步开始...
+2025-12-27 20:45:13.817 | INFO     | app.services.data_sync:sync_knowledge_base:29 - 🔄 [Sync] Neo4j 查询到 6 条数据: [{'name': 'Elon Musk', 'desc': None, 'labels': ['Person']}, {'name': 'SpaceX', 'desc': None, 'labels': ['Org']}, {'name': 'Tesla', 'desc': None, 'labels': ['Org']}, {'name': 'Starlink', 'desc': None, 'labels': ['Asset']}, {'name': 'FSD', 'desc': None, 'labels': ['Asset']}, {'name': 'Starbase (Boca Chica), TX', 'desc': None, 'labels': ['Place']}]...
+2025-12-27 20:45:13.854 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-27 20:45:13.854 | INFO     | app.services.data_sync:sync_knowledge_base:73 - ✅ 使用现有集合: test-collection
+2025-12-27 20:45:13.854 | INFO     | app.services.data_sync:sync_knowledge_base:78 - 🗑️ 清空 17807 条旧数据
+2025-12-27 20:45:14.720 | SUCCESS  | app.services.data_sync:sync_knowledge_base:105 - ✅ 同步完成！实际写入 6 条实体
+2025-12-27 20:45:18.419 | INFO     | app.services.data_sync:sync_knowledge_base:18 - 🔄 [Sync] Neo4j -> Qdrant 全量同步开始...
+2025-12-27 20:45:18.436 | INFO     | app.services.data_sync:sync_knowledge_base:29 - 🔄 [Sync] Neo4j 查询到 6 条数据: [{'name': 'Elon Musk', 'desc': None, 'labels': ['Person']}, {'name': 'SpaceX', 'desc': None, 'labels': ['Org']}, {'name': 'Tesla', 'desc': None, 'labels': ['Org']}, {'name': 'Starlink', 'desc': None, 'labels': ['Asset']}, {'name': 'FSD', 'desc': None, 'labels': ['Asset']}, {'name': 'Starbase (Boca Chica), TX', 'desc': None, 'labels': ['Place']}]...
+2025-12-27 20:45:18.485 | SUCCESS  | app.services.embedding_factory:get_embedding:41 - ✅ Embedding 已初始化 | Model: Qwen/Qwen3-Embedding-8B
+2025-12-27 20:45:18.485 | INFO     | app.services.data_sync:sync_knowledge_base:73 - ✅ 使用现有集合: test-collection
+2025-12-27 20:45:18.485 | INFO     | app.services.data_sync:sync_knowledge_base:78 - 🗑️ 清空 6 条旧数据
+2025-12-27 20:45:19.147 | SUCCESS  | app.services.data_sync:sync_knowledge_base:105 - ✅ 同步完成！实际写入 6 条实体
+2025-12-27 20:45:37.841 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 马斯克有什么产业 (ID: thread-1766839537841-171dca)
+2025-12-27 20:45:37.865 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 马斯克有什么产业
+2025-12-27 20:45:39.530 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: ['马斯克']
+2025-12-27 20:45:39.836 | INFO     | app.services.hybrid_search:search:119 - 🔍 [RETRIEVAL]: 匹配到实体: [{'name': 'FSD', 'score': 0.4128265917319921, 'type': 'Asset'}, {'name': 'SpaceX', 'score': 0.38081635260039587, 'type': 'Org'}]
+2025-12-27 20:45:39.875 | INFO     | app.services.hybrid_search:search:124 - 🔍 [RETRIEVAL]: 查找到图谱关系: 无直接关联信息
+2025-12-27 20:45:39.875 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: ['马斯克']
+2025-12-27 20:45:39.877 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 20:49:10.184 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 介绍一下SpaceX (ID: thread-1766839750184-02e15a)
+2025-12-27 20:49:10.188 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 介绍一下SpaceX
+2025-12-27 20:49:11.491 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: ['SpaceX']
+2025-12-27 20:49:11.882 | INFO     | app.services.hybrid_search:search:119 - 🔍 [RETRIEVAL]: 匹配到实体: [{'name': 'SpaceX', 'score': 0.999887117607829, 'type': 'Org'}, {'name': 'Starlink', 'score': 0.38748685781977776, 'type': 'Asset'}]
+2025-12-27 20:49:11.887 | INFO     | app.services.hybrid_search:search:124 - 🔍 [RETRIEVAL]: 查找到图谱关系: 无直接关联信息
+2025-12-27 20:49:11.887 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: ['SpaceX']
+2025-12-27 20:49:11.889 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 20:49:46.917 | INFO     | app.api.endpoints:chat_stream:93 - 收到请求: 介绍一下SpaceX (ID: thread-1766839786917-d805f0)
+2025-12-27 20:49:46.920 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 介绍一下SpaceX
+2025-12-27 20:49:48.559 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: ['SpaceX']
+2025-12-27 20:49:48.871 | INFO     | app.services.hybrid_search:search:119 - 🔍 [RETRIEVAL]: 匹配到实体: [{'name': 'SpaceX', 'score': 0.999887117607829, 'type': 'Org'}, {'name': 'Starlink', 'score': 0.3874868114860572, 'type': 'Asset'}]
+2025-12-27 20:49:48.876 | INFO     | app.services.hybrid_search:search:124 - 🔍 [RETRIEVAL]: 查找到图谱关系: 无直接关联信息
+2025-12-27 20:49:48.876 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: ['SpaceX']
+2025-12-27 20:49:48.877 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 20:50:03.238 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: SpaceX（全称Space Exploration Technologies Corp.）是一家由埃隆·马斯克于2002年创立的美国航空航天制造商和太空运输公司。其核心目标是降低太空运输成本，并最终实现人类跨星球生存（如殖民火星）。
+
+SpaceX 的主要成就包括：
+1. **可重复使用火箭技术**：成功开发并多次回收“猎鹰9号”火箭的第一级，大幅降低了发射成本。
+2. **商业航天里程碑**：2012年成为首家向国际空间站运送货物的私营公司；2020年首次执行载人航天任务，结束了美国对俄罗斯飞船的依赖。
+3. **星舰项目**：正在研发的完全可重复使用超重型运载系统，旨在未来执行月球、火星等深空任务。
+4. **星链计划**：通过发射数千颗近地轨道卫星，构建全球高速互联网覆盖网络，目前已为多国提供卫星互联网服务。
+
+SpaceX 以其创新性和商业化模式，推动了全球航天产业的变革，成为政府和商业航天任务的重要合作伙伴。
+2025-12-27 20:50:03.240 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...
+2025-12-27 20:50:05.414 | INFO     | app.api.endpoints:chat_sync:111 - 收到同步请求: 介绍一下SpaceX (ID: thread-1766839805414-4400eb)
+2025-12-27 20:50:05.417 | INFO     | app.core.nodes.retrieval:retrieve_node:12 - 🔍 [RETRIEVAL] 开始检索: 介绍一下SpaceX
+2025-12-27 20:50:07.013 | INFO     | app.services.hybrid_search:_extract_entities:151 - 提取实体: ['SpaceX']
+2025-12-27 20:50:07.437 | INFO     | app.services.hybrid_search:search:119 - 🔍 [RETRIEVAL]: 匹配到实体: [{'name': 'SpaceX', 'score': 0.999887117607829, 'type': 'Org'}, {'name': 'Starlink', 'score': 0.38748684243505876, 'type': 'Asset'}]
+2025-12-27 20:50:07.445 | INFO     | app.services.hybrid_search:search:124 - 🔍 [RETRIEVAL]: 查找到图谱关系: 无直接关联信息
+2025-12-27 20:50:07.446 | INFO     | app.core.nodes.retrieval:retrieve_node:28 -    - 找到实体: ['SpaceX']
+2025-12-27 20:50:07.447 | INFO     | app.core.nodes.generation:generation_node:14 - 🧠 [GENERATION] 生成中...
+2025-12-27 20:50:20.769 | INFO     | app.core.nodes.generation:generation_node:30 - 🧠 [GENERATION] 生成完成: SpaceX（美国太空探索技术公司）由埃隆·马斯克于2002年创立，是一家专注于航天运输和太空探索的私人企业。它的主要目标是降低太空运输成本，最终实现人类在火星的定居。
+
+**核心成就与业务：**
+1. **可重复使用火箭**：SpaceX 开发了猎鹰系列火箭，并成功实现了火箭第一级的回收与重复使用，大幅降低了发射成本。
+2. **商业航天运输**：为 NASA 执行国际空间站的货物补给任务，并开发了载人“龙飞船”，成为首家将宇航员送入太空的私营公司。
+3. **星链计划**：通过发射数千颗低轨道卫星构建全球卫星互联网，为偏远地区提供高速网络服务。
+4. **星舰项目**：正在开发下一代超重型运载火箭“星舰”，目标用于月球、火星及更远深空任务。
+
+**影响力**：SpaceX 革新了航天工业的商业模式，推动了全球商业航天的发展，并激发了新一轮太空探索热潮。
+2025-12-27 20:50:20.771 | INFO     | app.core.nodes.validation:validation_node:24 - ⚖️ [VALIDATION] 正在评估...

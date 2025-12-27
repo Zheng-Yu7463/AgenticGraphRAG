@@ -19,6 +19,8 @@ async def event_generator(query: str, thread_id: str):
     """
     config = {"configurable": {"thread_id": thread_id}}
     history_messages = chat_history.get_langchain_history(thread_id)
+    # 在流式过程中保留最近的回答，校验节点不会返回 answer 字段
+    last_answer: str | None = None
     inputs = {
         "query": query,
         "messages": history_messages + [HumanMessage(content=query)]
@@ -33,6 +35,10 @@ async def event_generator(query: str, thread_id: str):
             
             # 1. 监听节点完成事件
             for node_name, state_update in event.items():
+
+                # 记录最新的回答（生成节点返回 answer，后续校验节点需要用到）
+                if isinstance(state_update, dict) and state_update.get("answer"):
+                    last_answer = state_update.get("answer")
                 
                 # 构造要发给前端的数据包
                 payload = {"type": "update", "node": node_name}
@@ -51,7 +57,7 @@ async def event_generator(query: str, thread_id: str):
                     payload["validation_status"] = state_update.get("validation_status")
                     payload["reason"] = state_update.get("validation_reason")
                     # 校验完成后的 Answer 才是最终 Answer
-                    payload["final_answer"] = state_update.get("answer")
+                    payload["final_answer"] = last_answer
                     
                     # 持久化当前轮对话
                     if payload["validation_status"] == "pass" and payload["final_answer"]:
