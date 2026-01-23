@@ -19,6 +19,31 @@ FastAPI + LangGraph 的图谱增强检索生成（GraphRAG）实验项目。后�
 - Neo4j（本地/云均可）
 - Qdrant（本地文件模式默认使用 `./qdrant_data`，可替换为服务端/云端）
 
+## 全栈快速上手（根目录）
+1) 准备依赖与配置：
+- 按下方“后端快速上手”完成 Python 依赖与 `.env` 配置，并启动 Neo4j/Qdrant。
+- 前端可选创建 `.env.local` 指定后端地址（默认 `http://localhost:8000`）。
+```ini
+VITE_API_BASE=http://localhost:8000
+```
+
+2) 启动后端：
+```bash
+cd backend
+python -m app.main
+```
+
+3) 启动前端（新终端）：
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+4) 访问：
+- 前端：`http://localhost:5173`
+- 后端文档：`http://localhost:8000/docs`
+
 ## 后端快速上手（`backend/`）
 1) 创建虚拟环境并安装依赖（示例）：
 ```bash
@@ -87,13 +112,28 @@ python -m app.main
 - 会话持久化：`backend/app/logs/chat_history.json`
 - 运行日志：`backend/app/logs/app.log`（Loguru，自动滚动）
 
-## 前端（`frontend/`）
-- 现状：Vue 3 + Vite + TS 脚手架，尚未与后端对接，可按需接入上述 API。
-- 常用脚本：
-  - `npm install`
-  - `npm run dev` / `npm run build`
-  - `npm run lint`（ESLint + Oxlint），`npm run test:unit`（Vitest）
-- Node 版本要求见 `package.json` 的 `engines`。
+## 前端快速上手（`frontend/`）
+1) 安装依赖：
+```bash
+cd frontend
+npm install
+```
+
+2) 可选：配置后端地址（默认 `http://localhost:8000`）：
+```ini
+VITE_API_BASE=http://localhost:8000
+```
+
+3) 启动开发服务器：
+```bash
+npm run dev
+```
+
+4) 常用脚本：
+- `npm run build` 生产构建
+- `npm run lint`（ESLint + Oxlint）
+- `npm run test:unit`（Vitest）
+- `npm run test:e2e`（Playwright，需要先 `npx playwright install`）
 
 ## Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=Zheng-Yu7463/AgenticGraphRAG&type=date&legend=bottom-right)](https://www.star-history.com/#Zheng-Yu7463/AgenticGraphRAG&type=date&legend=bottom-right)
